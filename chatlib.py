@@ -1,6 +1,9 @@
-# In some GIVEN functions, msg and data are opposite to each other for some reason
 from typing import Union  # To type hint
-# import time  # To measure performance
+
+"""
+In some GIVEN functions, msg and data are opposite to each other for some reason
+IMPORTANT: .pyc file works only with 3.8.2 Python version!
+"""
 
 NUM_OF_FIELDS = 3  # ADDED TO FURTHER CHECK VALIDITY OF MESSAGES
 CMD_FIELD_LENGTH = 16  # Exact length of cmd field (in bytes)
@@ -97,7 +100,7 @@ def split_data(msg: str, expected_fields: int) -> Union[list[str], list[None]]:
     :rtype: Union[list[str], list[None]]
     """
     fields = msg.split(DATA_DELIMITER)
-    return fields if len(fields) == expected_fields + 1 else [ERROR_RETURN]
+    return fields if (len(fields) == expected_fields + 1) else [ERROR_RETURN]
 
 
 def join_data(msg_fields: list[str]) -> str:
@@ -112,12 +115,6 @@ def join_data(msg_fields: list[str]) -> str:
 
 
 def main():
-    # t1 = time.perf_counter()
-    # for _ in range(1_000_000):
-    #     build_message("LOGIN", "aaaa#bbbb")
-    # t2 = time.perf_counter()
-    # print(f"1 took {t2 - t1} seconds.")
-
     print(parse_message("ERROR           |0015|Error Occurred!"))
 
 
