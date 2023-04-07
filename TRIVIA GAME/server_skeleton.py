@@ -5,11 +5,13 @@
 import socket
 import select
 import random
+import requests
+import json
 import chatlib
 
 users = {}
 questions = {}
-logged_users = {}  # A dictionary of client hostnames to usernames
+logged_users = {}  # Tuples of sockets and usernames
 client_sockets = []
 messages_to_send = []
 
@@ -100,18 +102,26 @@ def print_client_sockets(sockets: list[socket]) -> None:
 
 # DATA LOADERS
 
-def load_questions():
+def load_questions() -> None:
     """
-    Loads questions bank from file	## FILE SUPPORT TO BE ADDED LATER
-    Receives: -
-    Returns: questions dictionary
+    Loads questions from a file	in this format:
+    qID|question|ans1,...,ans4|correctAnswerNum.
+    The dictionary's keys are the question IDs, their values are
+    sub-dictionaries that contain the question, possible answers and the correct answer.
+    ELEMENTS CAN'T CONTAIN '|', ANSWERS CAN'T CONTAIN ','!
+    :return: None
     """
     global questions
-    questions = {
-        2313: {"question": "How much is 2+2", "answers": ["3", "4", "2", "1"], "correct": 2},
-        4122: {"question": "What is the capital of France?", "answers": ["Lion", "Marseille", "Paris", "Montpellier"],
-               "correct": 3}
-    }
+    key_names = ("question", "answers", "correct")
+
+    with open(QUESTIONS_FILE_PATH, 'r') as file:
+        content = file.read().splitlines()
+        for question in content:
+            q_id, *data = question.split('|')
+            q_id = int(q_id)  # Question ID
+            data[1] = data[1].split(',')
+            data[2] = int(data[2])  # Correct answer num
+            questions[q_id] = dict(zip(key_names, data))  # Add questions to dictionary
 
 
 def load_user_database() -> None:
@@ -119,7 +129,8 @@ def load_user_database() -> None:
     Loads users data from a file in this format:
     username|password|score|qID,qID.
     The dictionary's keys are the usernames, their values are
-    also dictionaries that contain password, score and questions asked
+    sub-dictionaries that contain password, score and questions asked.
+    ELEMENTS CAN'T CONTAIN '|', QUESTIONS_ASKED CAN'T CONTAIN ','!
     :return: None
     """
     global users
@@ -127,10 +138,10 @@ def load_user_database() -> None:
 
     with open(USERS_FILE_PATH, 'r') as file:
         content = file.read().splitlines()
-        for line in content:
-            name, *data = line.split('|')
+        for user in content:
+            name, *data = user.split('|')
             data[1] = int(data[1])  # Score
-            data[2] = [int(x) for x in data[2].split(',') if bool(x)]  # Questions asked, empty list if empty string
+            data[2] = {int(x) for x in data[2].split(',') if bool(x)}  # Questions asked, empty list if empty string
             users[name] = dict(zip(key_names, data))  # Add user data to dictionary
 
 
@@ -157,7 +168,7 @@ def write_to_users_file() -> None:
 
 # MESSAGE HANDLING
 
-def handle_getscore_message(conn: socket, username: str) -> None:
+def handle_get_score_message(conn: socket, username: str) -> None:
     """
     Gets the score of a given username, then sends it back to client
     :param conn: The socket connection
@@ -218,7 +229,7 @@ def handle_logout_message(conn: socket) -> None:
     try:
         client_address = conn.getpeername()
         logged_users.pop(client_address)
-    except OSError:
+    except (OSError, KeyError):
         # The client was forced-closed
         client_address = "unknown"
 
@@ -258,17 +269,27 @@ def handle_login_message(conn: socket, data: str) -> None:
     build_and_send_message(conn, cmd, "")
 
 
-def create_random_question() -> str:
+def create_random_question(username: str) -> str | None:
     """
     Picks a random question, then returns it
-    in the pattern 'id#question#ans1#ans2#...#correct'
-    :return: The random question in the protocol format
-    :rtype: str
+    in the format 'id#question#ans1#ans2#...#correct'
+    :return: The random question in the protocol format, None if no questions left
+    :rtype: str | None
     """
     global questions
-    question_id = random.choice(list(questions.keys()))
+    global users
+
+    # Get questions' IDs that were not asked
+    questions_asked = users[username]["questions_asked"]
+    questions_not_asked = list(set(questions.keys()).difference(questions_asked))
+    if not questions_not_asked:
+        # All questions were asked
+        return None
+
+    # Pick a question & convert to protocol's format
+    question_id = random.sample(questions_not_asked, 1)[0]  # Get a random ID
     question = questions[question_id]
-    data = [str(question_id), question["question"], *question["answers"], str(question["correct"])]
+    data = [str(question_id), question["question"], *question["answers"]]
     return chatlib.join_data(data)
 
 
@@ -279,15 +300,26 @@ def handle_question_message(conn: socket) -> None:
     :type conn: socket
     :return: None
     """
-    cmd = chatlib.PROTOCOL_SERVER["question_ok_msg"]
-    data = create_random_question()
+    global logged_users
+    username = logged_users.get(conn.getpeername())
+
+    # Get a random question
+    question = create_random_question(username)
+    if question is None:
+        # No questions left
+        cmd = chatlib.PROTOCOL_SERVER["no_questions_msg"]
+        data = ""
+    else:
+        # Send question to client
+        cmd = chatlib.PROTOCOL_SERVER["question_ok_msg"]
+        data = question
+
     build_and_send_message(conn, cmd, data)
 
 
 def inc_score(username: str, points: int = POINTS_PER_QUESTION) -> None:
     """
-    Increments score for a given username,
-    then applies changes to the file database
+    Increments score for a given username
     :param username: The user to inc their score
     :type username: str
     :param points: Num of points to inc-by (default is POINTS_PER_QUESTION)
@@ -296,12 +328,14 @@ def inc_score(username: str, points: int = POINTS_PER_QUESTION) -> None:
     """
     global users
     users.get(username)["score"] += points
-    write_to_users_file()  # Apply changes to database
+    # Write changes to database later in handle_answer_message()
 
 
 def handle_answer_message(conn: socket, username: str, data: str) -> None:
     """
     Increments username's score if the answer is right,
+    adds qID to questions asked,
+    then applies changes to file database and
     then sends feedback back to the client
     :param conn: The socket connection
     :type conn: socket
@@ -312,9 +346,15 @@ def handle_answer_message(conn: socket, username: str, data: str) -> None:
     :return: None
     """
     global questions
+    global users
     question_id, answer = chatlib.split_data(data, 2)
-    correct_answer = str(questions[int(question_id)]["correct"])
+    question_id = int(question_id)
+    correct_answer = str(questions[question_id]["correct"])
 
+    # Add qID to questions asked
+    users[username]["questions_asked"].add(question_id)
+
+    # Handle & check answer
     if answer == correct_answer:
         inc_score(username)
         cmd = chatlib.PROTOCOL_SERVER["correct_answer_msg"]
@@ -323,6 +363,7 @@ def handle_answer_message(conn: socket, username: str, data: str) -> None:
         cmd = chatlib.PROTOCOL_SERVER["wrong_answer_msg"]
         data_to_send = correct_answer
 
+    write_to_users_file()  # Apply questions_asked and score inc to database
     build_and_send_message(conn, cmd, data_to_send)
 
 
@@ -351,7 +392,7 @@ def handle_client_message(conn: socket, cmd: str, data: str) -> None:
         case "LOGOUT":  # chatlib.PROTOCOL_CLIENT.get("logout_msg")
             handle_logout_message(conn)
         case "MY_SCORE":  # chatlib.PROTOCOL_CLIENT.get("get_score_msg")
-            handle_getscore_message(conn, logged_users.get(conn.getpeername()))
+            handle_get_score_message(conn, logged_users.get(conn.getpeername()))
         case "HIGHSCORE":  # chatlib.PROTOCOL_CLIENT.get("get_highscore_msg")
             handle_highscore_message(conn)
         case "LOGGED":  # chatlib.PROTOCOL_CLIENT.get("get_logged_msg")

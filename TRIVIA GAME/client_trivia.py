@@ -197,8 +197,8 @@ def play_question(conn: socket) -> None:
         return
 
     # Build question and answers for display
-    data = chatlib.split_data(data, 7)
-    question_id, question, answers = data[0], data[1], data[2:6]
+    data = chatlib.split_data(data, 6)
+    question_id, question, *answers = data
     print(f"Question: {question}")
     # Print answers
     for index, val in enumerate(answers, 1):
