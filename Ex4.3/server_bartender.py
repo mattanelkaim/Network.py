@@ -71,7 +71,7 @@ def main():
                     close_socket(current_socket, client_sockets)
                     continue
 
-                if data == "":
+                if not bool(data):  # More optimized than data == ""
                     # Client wants to disconnect
                     close_socket(current_socket, client_sockets)
                 else:
