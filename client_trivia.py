@@ -160,7 +160,7 @@ def get_highscore(conn: socket) -> None:
     if cmd != chatlib.PROTOCOL_SERVER["highscore_ok_msg"]:
         error_and_exit(data)  # data holds error info
 
-    print(f"High score table:\n{data}")
+    print(f"High-score table:\n{data}")
 
 
 def get_logged_users(conn: socket) -> None:
@@ -197,7 +197,7 @@ def play_question(conn: socket) -> None:
         return
 
     # Build question and answers for display
-    data = chatlib.split_data(data, 6)
+    data = chatlib.split_data(data, 7)
     question_id, question, answers = data[0], data[1], data[2:6]
     print(f"Question: {question}")
     # Print answers
