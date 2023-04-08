@@ -1,0 +1,20 @@
+{
+    "test": {
+        "password": "test",
+        "score": 10,
+        "questions_asked": []
+    },
+    "mattan": {
+        "password": "123",
+        "score": 55,
+        "questions_asked": []
+    },
+    "master": {
+        "password": "master",
+        "score": 210,
+        "questions_asked": [
+            "2313",
+            "4122"
+        ]
+    }
+}

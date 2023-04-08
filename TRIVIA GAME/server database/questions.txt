@@ -1,2 +1,0 @@
-2313|How much is 2+2|3,4,2,1|2
-4122|What is the capital of France?|Lion,Marseille,Paris,Montpellier|3
