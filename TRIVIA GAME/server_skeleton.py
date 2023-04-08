@@ -4,23 +4,24 @@
 
 import socket
 import select
-import random
+import logging
 import requests
 import json
+import random
 import chatlib
 
 users = {}
 questions = {}
 logged_users = {}  # Tuples of sockets and usernames
-client_sockets = []
+client_sockets = set()
 messages_to_send = []
 
 SERVER_IP = "127.0.0.1"
 SERVER_PORT = 5678
 BUFFER_SIZE = 1024
 
-USERS_FILE_PATH = r"server database\users.txt"
-QUESTIONS_FILE_PATH = r"server database\questions.txt"
+USERS_FILE_PATH = r"server database\users.json"
+QUESTIONS_FILE_PATH = r"server database\questions.json"
 ERROR_MSG = "ERROR"
 POINTS_PER_QUESTION = 5
 
@@ -29,8 +30,8 @@ POINTS_PER_QUESTION = 5
 
 def build_and_send_message(conn: socket, code: str, data: str) -> None:
     """
-    Builds a new message using chatlib, using code and message.
-    Prints debug info, then sends adds message to messages_to_send
+    Builds a new message using chatlib format, using code and data.
+    Logs debug info, then appends msg to messages_to_send
     :param conn: The socket connection
     :type conn: socket
     :param code: The command of the message
@@ -41,21 +42,21 @@ def build_and_send_message(conn: socket, code: str, data: str) -> None:
     """
     global messages_to_send
     message = chatlib.build_message(code, data)
-    print(f"[SERVER] {message}")
+    logging.debug(f"[SERVER] {message}")
     messages_to_send.append((conn, message))
 
 
 def recv_message_and_parse(conn: socket) -> tuple[str, str] | tuple[None, None]:
     """
-    Receives a new message from given socket, prints debug info,
-    then parses the message using chatlib
+    Receives a new message from given socket, logs debug info,
+    then parses the message using chatlib format
     :param conn: The socket connection
     :type conn: socket
     :return: cmd and data of the received message, or (None, None) if error occurred
     :rtype: tuple[str, str] | tuple[None, None]
     """
     full_msg = conn.recv(BUFFER_SIZE).decode()  # Get server response
-    print(f"[CLIENT] {full_msg}")
+    logging.debug(f"[CLIENT] {full_msg}")
     cmd, data = chatlib.parse_message(full_msg)
     return cmd, data
 
@@ -84,86 +85,63 @@ def send_error(conn: socket, error_msg: str) -> None:
     build_and_send_message(conn, ERROR_MSG, error_msg)
 
 
-def print_client_sockets(sockets: list[socket]) -> None:
+def print_client_sockets(sockets: set[socket]) -> None:
     """
-    Prints all sockets details in a given list of sockets
+    Logs all sockets details in a given list of sockets
     :param sockets: The list of the sockets
-    :type sockets: list[sockets]
+    :type sockets: set[sockets]
     :return: None
     """
-    print("\nConnected clients:")
-    if sockets:
-        for client in sockets:
-            print(f"\t{client.getpeername()}")
+    # Get clients' IPs and ports
+    connected_clients = []
+    for client in sockets:
+        client_address = client.getpeername()  # Compute only once
+        connected_clients.append(f"{client_address[0]}:{client_address[1]}")
+
+    # Log the details
+    if connected_clients:
+        connected_clients = '\n\t'.join(connected_clients)
+        message = f"Connected clients:\n\t{connected_clients}"
     else:
-        print("\tNo clients connected!")
-    print()  # Newline
+        message = "No connected clients"
+    logging.info(message)
 
 
 # DATA LOADERS
 
 def load_questions() -> None:
     """
-    Loads questions from a file	in this format:
-    qID|question|ans1,...,ans4|correctAnswerNum.
+    Loads questions dict from a JSON file.
     The dictionary's keys are the question IDs, their values are
-    sub-dictionaries that contain the question, possible answers and the correct answer.
-    ELEMENTS CAN'T CONTAIN '|', ANSWERS CAN'T CONTAIN ','!
+    sub-dicts that contain question, 4 answers and correct answer.
     :return: None
     """
     global questions
-    key_names = ("question", "answers", "correct")
-
     with open(QUESTIONS_FILE_PATH, 'r') as file:
-        content = file.read().splitlines()
-        for question in content:
-            q_id, *data = question.split('|')
-            q_id = int(q_id)  # Question ID
-            data[1] = data[1].split(',')
-            data[2] = int(data[2])  # Correct answer num
-            questions[q_id] = dict(zip(key_names, data))  # Add questions to dictionary
+        questions = json.load(file)
 
 
 def load_user_database() -> None:
     """
-    Loads users data from a file in this format:
-    username|password|score|qID,qID.
+    Loads users dict from a JSON file.
     The dictionary's keys are the usernames, their values are
-    sub-dictionaries that contain password, score and questions asked.
-    ELEMENTS CAN'T CONTAIN '|', QUESTIONS_ASKED CAN'T CONTAIN ','!
+    sub-dicts that contain password, score and questions asked.
     :return: None
     """
     global users
-    key_names = ("password", "score", "questions_asked")
-
     with open(USERS_FILE_PATH, 'r') as file:
-        content = file.read().splitlines()
-        for user in content:
-            name, *data = user.split('|')
-            data[1] = int(data[1])  # Score
-            data[2] = {int(x) for x in data[2].split(',') if bool(x)}  # Questions asked, empty list if empty string
-            users[name] = dict(zip(key_names, data))  # Add user data to dictionary
+        users = json.load(file)
 
 
 def write_to_users_file() -> None:
     """
-    The opposite of load_user_database(): converts
-    users info format from a dict to file's format,
-    then applies changes to the file
+    The opposite of load_user_database():
+    writes users dict to a JSON file
     :return: None
     """
     global users
-    content = []
-
-    for user in users.items():
-        username, userdata = user[0], list(user[1].values())
-        userdata[1] = str(userdata[1])  # Convert score to string
-        userdata[2] = map(str, userdata[2])  # Turn to ints to strs
-        userdata[2] = ",".join(userdata[2])  # Convert it to 1 string
-        content.append('|'.join([username] + userdata))
-
     with open(USERS_FILE_PATH, 'w') as file:
-        file.write('\n'.join(content))
+        json.dump(users, file, indent=4)
 
 
 # MESSAGE HANDLING
@@ -236,7 +214,7 @@ def handle_logout_message(conn: socket) -> None:
     client_sockets.remove(conn)
     # TODO REMOVE FROM logged_users IF FORCED-CLOSED
     conn.close()
-    print(f"Connection closed for client {client_address}")
+    logging.debug(f"Connection closed for client {client_address}")
     print_client_sockets(client_sockets)
 
 
@@ -280,14 +258,14 @@ def create_random_question(username: str) -> str | None:
     global users
 
     # Get questions' IDs that were not asked
-    questions_asked = users[username]["questions_asked"]
-    questions_not_asked = list(set(questions.keys()).difference(questions_asked))
+    questions_asked = set(users[username]["questions_asked"])
+    questions_not_asked = set(questions.keys()).difference(questions_asked)
     if not questions_not_asked:
         # All questions were asked
         return None
 
     # Pick a question & convert to protocol's format
-    question_id = random.sample(questions_not_asked, 1)[0]  # Get a random ID
+    question_id = random.sample(list(questions_not_asked), k=1)[0]  # Get a random ID
     question = questions[question_id]
     data = [str(question_id), question["question"], *question["answers"]]
     return chatlib.join_data(data)
@@ -348,11 +326,10 @@ def handle_answer_message(conn: socket, username: str, data: str) -> None:
     global questions
     global users
     question_id, answer = chatlib.split_data(data, 2)
-    question_id = int(question_id)
     correct_answer = str(questions[question_id]["correct"])
 
     # Add qID to questions asked
-    users[username]["questions_asked"].add(question_id)
+    users[username]["questions_asked"].append(question_id)
 
     # Handle & check answer
     if answer == correct_answer:
@@ -414,18 +391,21 @@ def main():
     load_user_database()
     load_questions()
 
+    # Config logging for info & debug
+    logging.basicConfig(level=logging.DEBUG, format='%(levelname)s: %(message)s')
+
     server_socket = setup_socket()
-    print(f"Server is up and listening on port {SERVER_PORT}...")
+    logging.info(f"Server is up and listening on port {SERVER_PORT}...")
 
     while True:
-        ready_to_read, ready_to_write, _ = select.select([server_socket] + client_sockets, client_sockets, [])
+        ready_to_read, ready_to_write, _ = select.select({server_socket}.union(client_sockets), client_sockets, [])
 
         # Scan the ready-to-read sockets
         for current_socket in ready_to_read:
             if current_socket is server_socket:
                 # Add new clients
                 client_socket, client_addr = current_socket.accept()
-                client_sockets.append(client_socket)
+                client_sockets.add(client_socket)
                 print_client_sockets(client_sockets)
             else:
                 # Handle clients
@@ -435,8 +415,12 @@ def main():
                     handle_logout_message(current_socket)
                     continue
 
-                # Handle client command
-                handle_client_message(current_socket, cmd, data)
+                if not bool(cmd):
+                    # User wants to disconnect
+                    handle_logout_message(current_socket)
+                else:
+                    # Handle client command
+                    handle_client_message(current_socket, cmd, data)
 
         # Send all messages
         for msg in messages_to_send:
