@@ -1,0 +1,590 @@
+{
+    "cc8d0112": {
+        "category": "Science: Computers",
+        "type": "multiple",
+        "difficulty": "hard",
+        "question": "The Harvard architecture for micro-controllers added which additional bus?",
+        "correct_answer": "Instruction",
+        "incorrect_answers": [
+            "Address",
+            "Data",
+            "Control"
+        ]
+    },
+    "8ab1fd1c": {
+        "category": "Science: Computers",
+        "type": "multiple",
+        "difficulty": "easy",
+        "question": "What does CPU stand for?",
+        "correct_answer": "Central Processing Unit",
+        "incorrect_answers": [
+            "Central Process Unit",
+            "Computer Personal Unit",
+            "Central Processor Unit"
+        ]
+    },
+    "64de3fef": {
+        "category": "Science: Computers",
+        "type": "multiple",
+        "difficulty": "medium",
+        "question": "Moore's law originally stated that the number of transistors on a microprocessor chip would double every...",
+        "correct_answer": "Year",
+        "incorrect_answers": [
+            "Four Years",
+            "Two Years",
+            "Eight Years"
+        ]
+    },
+    "af5faa38": {
+        "category": "Science: Computers",
+        "type": "multiple",
+        "difficulty": "medium",
+        "question": "What does AD stand for in relation to Windows Operating Systems? ",
+        "correct_answer": "Active Directory",
+        "incorrect_answers": [
+            "Alternative Drive",
+            "Automated Database",
+            "Active Department"
+        ]
+    },
+    "2fb4ee5d": {
+        "category": "Science: Computers",
+        "type": "multiple",
+        "difficulty": "easy",
+        "question": "HTML is what type of language?",
+        "correct_answer": "Markup Language",
+        "incorrect_answers": [
+            "Macro Language",
+            "Programming Language",
+            "Scripting Language"
+        ]
+    },
+    "35284733": {
+        "category": "Science: Computers",
+        "type": "multiple",
+        "difficulty": "easy",
+        "question": "What amount of bits commonly equals one byte?",
+        "correct_answer": "8",
+        "incorrect_answers": [
+            "1",
+            "2",
+            "64"
+        ]
+    },
+    "2f5a0985": {
+        "category": "Science: Computers",
+        "type": "multiple",
+        "difficulty": "medium",
+        "question": "On which computer hardware device is the BIOS chip located?",
+        "correct_answer": "Motherboard",
+        "incorrect_answers": [
+            "Hard Disk Drive",
+            "Central Processing Unit",
+            "Graphics Processing Unit"
+        ]
+    },
+    "efd8f854": {
+        "category": "Science: Computers",
+        "type": "multiple",
+        "difficulty": "easy",
+        "question": "If you were to code software in this language you'd only be able to type 0's and 1's.",
+        "correct_answer": "Binary",
+        "incorrect_answers": [
+            "JavaScript",
+            "C++",
+            "Python"
+        ]
+    },
+    "2df1f112": {
+        "category": "Science: Computers",
+        "type": "multiple",
+        "difficulty": "easy",
+        "question": "What does the Prt Sc button do?",
+        "correct_answer": "Captures what's on the screen and copies it to your clipboard",
+        "incorrect_answers": [
+            "Nothing",
+            "Saves a .png file of what's on the screen in your screenshots folder in photos",
+            "Closes all windows"
+        ]
+    },
+    "22335f08": {
+        "category": "Science: Computers",
+        "type": "multiple",
+        "difficulty": "medium",
+        "question": "All of the following programs are classified as raster graphics editors EXCEPT:",
+        "correct_answer": "Inkscape",
+        "incorrect_answers": [
+            "Paint.NET",
+            "GIMP",
+            "Adobe Photoshop"
+        ]
+    },
+    "e4145cfb": {
+        "category": "Science: Computers",
+        "type": "multiple",
+        "difficulty": "medium",
+        "question": "The computer OEM manufacturer Clevo, known for its Sager notebook line, is based in which country?",
+        "correct_answer": "Taiwan",
+        "incorrect_answers": [
+            "United States",
+            "Germany",
+            "China (People's Republic of)"
+        ]
+    },
+    "acecd484": {
+        "category": "Science: Computers",
+        "type": "multiple",
+        "difficulty": "easy",
+        "question": "What is the most preferred image format used for logos in the Wikimedia database?",
+        "correct_answer": ".svg",
+        "incorrect_answers": [
+            ".png",
+            ".jpeg",
+            ".gif"
+        ]
+    },
+    "ec08ceee": {
+        "category": "Science: Computers",
+        "type": "multiple",
+        "difficulty": "medium",
+        "question": "What did the name of the Tor Anonymity Network orignially stand for?",
+        "correct_answer": "The Onion Router",
+        "incorrect_answers": [
+            "The Only Router",
+            "The Orange Router",
+            "The Ominous Router"
+        ]
+    },
+    "95a4face": {
+        "category": "Science: Computers",
+        "type": "multiple",
+        "difficulty": "medium",
+        "question": "What was the first commerically available computer processor?",
+        "correct_answer": "Intel 4004",
+        "incorrect_answers": [
+            "Intel 486SX",
+            "TMS 1000",
+            "AMD AM386"
+        ]
+    },
+    "b657d010": {
+        "category": "Science: Computers",
+        "type": "multiple",
+        "difficulty": "medium",
+        "question": "What was the name given to Android 4.3?",
+        "correct_answer": "Jelly Bean",
+        "incorrect_answers": [
+            "Lollipop",
+            "Nutella",
+            "Froyo"
+        ]
+    },
+    "49340c96": {
+        "category": "Science: Computers",
+        "type": "multiple",
+        "difficulty": "easy",
+        "question": "In web design, what does CSS stand for?",
+        "correct_answer": "Cascading Style Sheet",
+        "incorrect_answers": [
+            "Counter Strike: Source",
+            "Corrective Style Sheet",
+            "Computer Style Sheet"
+        ]
+    },
+    "f4e8e3ad": {
+        "category": "Science: Computers",
+        "type": "multiple",
+        "difficulty": "easy",
+        "question": "What is the domain name for the country Tuvalu?",
+        "correct_answer": ".tv",
+        "incorrect_answers": [
+            ".tu",
+            ".tt",
+            ".tl"
+        ]
+    },
+    "646ded0c": {
+        "category": "Science: Computers",
+        "type": "multiple",
+        "difficulty": "medium",
+        "question": "While Apple was formed in California, in which western state was Microsoft founded?",
+        "correct_answer": "New Mexico",
+        "incorrect_answers": [
+            "Washington",
+            "Colorado",
+            "Arizona"
+        ]
+    },
+    "85de5c42": {
+        "category": "Science: Computers",
+        "type": "multiple",
+        "difficulty": "easy",
+        "question": "How many kilobytes in one gigabyte (in decimal)?",
+        "correct_answer": "1000000",
+        "incorrect_answers": [
+            "1024",
+            "1000",
+            "1048576"
+        ]
+    },
+    "653e770c": {
+        "category": "Science: Computers",
+        "type": "multiple",
+        "difficulty": "medium",
+        "question": "What is the name of the default theme that is installed with Windows XP?",
+        "correct_answer": "Luna",
+        "incorrect_answers": [
+            "Neptune",
+            "Whistler",
+            "Bliss"
+        ]
+    },
+    "c3d6f0ff": {
+        "category": "Science: Computers",
+        "type": "multiple",
+        "difficulty": "easy",
+        "question": "On Twitter, what was the original character limit for a Tweet?",
+        "correct_answer": "140",
+        "incorrect_answers": [
+            "120",
+            "160",
+            "100"
+        ]
+    },
+    "0ca46622": {
+        "category": "Science: Computers",
+        "type": "multiple",
+        "difficulty": "medium",
+        "question": "In CSS, which of these values CANNOT be used with the \"position\" property?",
+        "correct_answer": "center",
+        "incorrect_answers": [
+            "static",
+            "absolute",
+            "relative"
+        ]
+    },
+    "9aa7f48b": {
+        "category": "Science: Computers",
+        "type": "multiple",
+        "difficulty": "medium",
+        "question": "How fast is USB 3.1 Gen 2 theoretically?",
+        "correct_answer": "10 Gb/s",
+        "incorrect_answers": [
+            "5 Gb/s",
+            "8 Gb/s",
+            "1 Gb/s"
+        ]
+    },
+    "27fa2eeb": {
+        "category": "Science: Computers",
+        "type": "multiple",
+        "difficulty": "medium",
+        "question": "Which operating system was released first?",
+        "correct_answer": "Mac OS",
+        "incorrect_answers": [
+            "Windows",
+            "Linux",
+            "OS/2"
+        ]
+    },
+    "74209ec3": {
+        "category": "Science: Computers",
+        "type": "multiple",
+        "difficulty": "medium",
+        "question": ".rs is the top-level domain for what country?",
+        "correct_answer": "Serbia",
+        "incorrect_answers": [
+            "Romania",
+            "Russia",
+            "Rwanda"
+        ]
+    },
+    "7094aada": {
+        "category": "Science: Computers",
+        "type": "multiple",
+        "difficulty": "medium",
+        "question": ".at is the top-level domain for what country?",
+        "correct_answer": "Austria",
+        "incorrect_answers": [
+            "Argentina",
+            "Australia",
+            "Angola"
+        ]
+    },
+    "a421e227": {
+        "category": "Science: Computers",
+        "type": "multiple",
+        "difficulty": "medium",
+        "question": "What is known as \"the brain\" of the Computer?",
+        "correct_answer": "Central Processing Unit",
+        "incorrect_answers": [
+            "Motherboard",
+            "Graphics Processing Unit",
+            "Keyboard"
+        ]
+    },
+    "7c0178d1": {
+        "category": "Science: Computers",
+        "type": "multiple",
+        "difficulty": "hard",
+        "question": "Which of the following is the oldest of these computers by release date?",
+        "correct_answer": "TRS-80",
+        "incorrect_answers": [
+            "Commodore 64",
+            "ZX Spectrum",
+            "Apple 3"
+        ]
+    },
+    "c3d05289": {
+        "category": "Science: Computers",
+        "type": "multiple",
+        "difficulty": "hard",
+        "question": "What internet protocol was documented in RFC 1459?",
+        "correct_answer": "IRC",
+        "incorrect_answers": [
+            "HTTP",
+            "HTTPS",
+            "FTP"
+        ]
+    },
+    "f37d342e": {
+        "category": "Science: Computers",
+        "type": "multiple",
+        "difficulty": "hard",
+        "question": "What does the International System of Quantities refer 1024 bytes as?",
+        "correct_answer": "Kibibyte",
+        "incorrect_answers": [
+            "Kylobyte",
+            "Kilobyte",
+            "Kelobyte"
+        ]
+    },
+    "5769802b": {
+        "category": "Science: Computers",
+        "type": "multiple",
+        "difficulty": "medium",
+        "question": "What was the first Android version specifically optimized for tablets?",
+        "correct_answer": "Honeycomb",
+        "incorrect_answers": [
+            "Eclair",
+            "Froyo",
+            "Marshmellow"
+        ]
+    },
+    "80220701": {
+        "category": "Science: Computers",
+        "type": "multiple",
+        "difficulty": "medium",
+        "question": "Which of these people was NOT a founder of Apple Inc?",
+        "correct_answer": "Jonathan Ive",
+        "incorrect_answers": [
+            "Steve Jobs",
+            "Ronald Wayne",
+            "Steve Wozniak"
+        ]
+    },
+    "78889382": {
+        "category": "Science: Computers",
+        "type": "multiple",
+        "difficulty": "hard",
+        "question": "Which RAID array type is associated with data mirroring?",
+        "correct_answer": "RAID 1",
+        "incorrect_answers": [
+            "RAID 0",
+            "RAID 10",
+            "RAID 5"
+        ]
+    },
+    "2aaecf02": {
+        "category": "Science: Computers",
+        "type": "multiple",
+        "difficulty": "hard",
+        "question": "What was the first company to use the term \"Golden Master\"?",
+        "correct_answer": "Apple",
+        "incorrect_answers": [
+            "IBM",
+            "Microsoft",
+            "Google"
+        ]
+    },
+    "015c2321": {
+        "category": "Science: Computers",
+        "type": "multiple",
+        "difficulty": "medium",
+        "question": "What does the term MIME stand for, in regards to computing?",
+        "correct_answer": "Multipurpose Internet Mail Extensions",
+        "incorrect_answers": [
+            "Mail Internet Mail Exchange",
+            "Multipurpose Interleave Mail Exchange",
+            "Mail Interleave Method Exchange"
+        ]
+    },
+    "6e2c097e": {
+        "category": "Science: Computers",
+        "type": "multiple",
+        "difficulty": "medium",
+        "question": "Which programming language was developed by Sun Microsystems in 1995?",
+        "correct_answer": "Java",
+        "incorrect_answers": [
+            "Python",
+            "Solaris OS",
+            "C++"
+        ]
+    },
+    "462d193f": {
+        "category": "Science: Computers",
+        "type": "multiple",
+        "difficulty": "medium",
+        "question": "The name of technology company HP stands for what?",
+        "correct_answer": "Hewlett-Packard",
+        "incorrect_answers": [
+            "Howard Packmann",
+            "Husker-Pollosk",
+            "Hellman-Pohl"
+        ]
+    },
+    "b75c4fb5": {
+        "category": "Science: Computers",
+        "type": "multiple",
+        "difficulty": "hard",
+        "question": "What is the name given to layer 4 of the Open Systems Interconnection (ISO) model?",
+        "correct_answer": "Transport",
+        "incorrect_answers": [
+            "Session",
+            "Data link",
+            "Network"
+        ]
+    },
+    "757d4b85": {
+        "category": "Science: Computers",
+        "type": "multiple",
+        "difficulty": "easy",
+        "question": "Which programming language shares its name with an island in Indonesia?",
+        "correct_answer": "Java",
+        "incorrect_answers": [
+            "Python",
+            "C",
+            "Jakarta"
+        ]
+    },
+    "468d71f3": {
+        "category": "Science: Computers",
+        "type": "multiple",
+        "difficulty": "easy",
+        "question": "How long is an IPv6 address?",
+        "correct_answer": "128 bits",
+        "incorrect_answers": [
+            "32 bits",
+            "64 bits",
+            "128 bytes"
+        ]
+    },
+    "833e0342": {
+        "category": "Science: Computers",
+        "type": "multiple",
+        "difficulty": "easy",
+        "question": "In computing, what does LAN stand for?",
+        "correct_answer": "Local Area Network",
+        "incorrect_answers": [
+            "Long Antenna Node",
+            "Light Access Node",
+            "Land Address Navigation"
+        ]
+    },
+    "5fe26994": {
+        "category": "Science: Computers",
+        "type": "multiple",
+        "difficulty": "medium",
+        "question": "How many bytes are in a single Kibibyte?",
+        "correct_answer": "1024",
+        "incorrect_answers": [
+            "2400",
+            "1000",
+            "1240"
+        ]
+    },
+    "b062e021": {
+        "category": "Science: Computers",
+        "type": "multiple",
+        "difficulty": "hard",
+        "question": "The acronym \"RIP\" stands for which of these?",
+        "correct_answer": "Routing Information Protocol",
+        "incorrect_answers": [
+            "Runtime Instance Processes",
+            "Regular Interval Processes",
+            "Routine Inspection Protocol"
+        ]
+    },
+    "fd5ad0fc": {
+        "category": "Science: Computers",
+        "type": "multiple",
+        "difficulty": "medium",
+        "question": "What does the 'S' in the RSA encryption algorithm stand for?",
+        "correct_answer": "Shamir",
+        "incorrect_answers": [
+            "Secure",
+            "Schottky",
+            "Stable"
+        ]
+    },
+    "b8f3adc2": {
+        "category": "Science: Computers",
+        "type": "multiple",
+        "difficulty": "hard",
+        "question": "What is the codename of the eighth generation Intel Core micro-architecture launched in October 2017?",
+        "correct_answer": "Coffee Lake",
+        "incorrect_answers": [
+            "Sandy Bridge",
+            "Skylake",
+            "Broadwell"
+        ]
+    },
+    "6fab5d64": {
+        "category": "Science: Computers",
+        "type": "multiple",
+        "difficulty": "hard",
+        "question": "Which of these Cherry MX mechanical keyboard switches is both tactile and clicky?",
+        "correct_answer": "Cherry MX Blue",
+        "incorrect_answers": [
+            "Cherry MX Black",
+            "Cherry MX Red",
+            "Cherry MX Brown"
+        ]
+    },
+    "d03b2b41": {
+        "category": "Science: Computers",
+        "type": "multiple",
+        "difficulty": "hard",
+        "question": "Which kind of algorithm is Ron Rivest not famous for creating?",
+        "correct_answer": "Secret sharing scheme",
+        "incorrect_answers": [
+            "Hashing algorithm",
+            "Asymmetric encryption",
+            "Stream cipher"
+        ]
+    },
+    "70b3526e": {
+        "category": "Science: Computers",
+        "type": "multiple",
+        "difficulty": "hard",
+        "question": "Who is the founder of Palantir?",
+        "correct_answer": "Peter Thiel",
+        "incorrect_answers": [
+            "Mark Zuckerberg",
+            "Marc Benioff",
+            "Jack Dorsey"
+        ]
+    },
+    "3e8b068e": {
+        "category": "Science: Computers",
+        "type": "multiple",
+        "difficulty": "easy",
+        "question": "What does the computer software acronym JVM stand for?",
+        "correct_answer": "Java Virtual Machine",
+        "incorrect_answers": [
+            "Java Vendor Machine",
+            "Java Visual Machine",
+            "Just Virtual Machine"
+        ]
+    }
+}
