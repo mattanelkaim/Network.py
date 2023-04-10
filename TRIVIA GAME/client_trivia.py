@@ -204,12 +204,15 @@ def play_question(conn: socket) -> None:
     for index, val in enumerate(answers, 1):
         print(f"\t{index}: {val}")
 
-    # Get answer from user and send to server
-    answer = input("Enter the answer (1-4): ")
-    if answer not in {"1", "2", "3", "4"}:
-        print("Invalid answer!")
-        return
-    formatted_answer = chatlib.join_data([question_id, answer])
+    # Get a valid answer from user and send to server
+    while True:
+        answer = input("Enter the answer (1-4): ")
+        if answer in {"1", "2", "3", "4"}:
+            break
+        else:
+            print("Invalid answer!")
+
+    formatted_answer = chatlib.join_data([question_id, answers[int(answer) - 1]])  # Get index
     cmd, data = build_send_recv_parse(conn, chatlib.PROTOCOL_CLIENT["send_answer_msg"], formatted_answer)
 
     # Show feedback to user

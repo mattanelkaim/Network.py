@@ -1,22 +1,44 @@
 {
     "2313": {
-        "question": "How much is 2+2",
-        "answers": [
-            "3",
-            "4",
-            "2",
-            "1"
-        ],
-        "correct": 2
+        "question": "Generally, which component of a computer draws the most power?",
+        "correct_answer": "Video Card",
+        "incorrect_answers": [
+            "Hard Drive",
+            "Processor",
+            "Power Supply"
+        ]
     },
     "4122": {
         "question": "What is the capital of France?",
-        "answers": [
+        "correct_answer": "Paris",
+        "incorrect_answers": [
             "Lion",
             "Marseille",
-            "Paris",
             "Montpellier"
-        ],
-        "correct": 3
+        ]
+    },
+    "6234": {
+        "category": "Science: Computers",
+        "type": "multiple",
+        "difficulty": "easy",
+        "question": "If you were to code software in this language you&#039;d only be able to type 0&#039;s and 1&#039;s.",
+        "correct_answer": "Binary",
+        "incorrect_answers": [
+            "JavaScript",
+            "C++",
+            "Python"
+        ]
+    },
+    "0a94fa35": {
+        "category": "Science: Computers",
+        "type": "multiple",
+        "difficulty": "easy",
+        "question": "In any programming language, what is the most common way to iterate through an array?",
+        "correct_answer": "&#039;For&#039; loops",
+        "incorrect_answers": [
+            "&#039;If&#039; Statements",
+            "&#039;Do-while&#039; loops",
+            "&#039;While&#039; loops"
+        ]
     }
 }

@@ -1,13 +1,14 @@
-##############################################################################
-# server.py
-##############################################################################
-
+"""
+The interactive server of the trivia game, protocol in network.py course
+"""
+import logging
 import socket
 import select
-import logging
-import requests
-import json
 import random
+import hashlib  # To create unique question IDs
+import json
+import html  # To remove HTML codes
+import requests
 import chatlib
 
 users = {}
@@ -16,12 +17,15 @@ logged_users = {}  # Tuples of sockets and usernames
 client_sockets = set()
 messages_to_send = []
 
-SERVER_IP = "127.0.0.1"
+SERVER_IP = "0.0.0.0"
 SERVER_PORT = 5678
 BUFFER_SIZE = 1024
 
 USERS_FILE_PATH = r"server database\users.json"
 QUESTIONS_FILE_PATH = r"server database\questions.json"
+QUESTIONS_API_URL = "https://opentdb.com/api.php"
+# Category 18 is computer science
+QUESTIONS_SETTINGS = {"amount": "50", "type": "multiple", "category": "18"}
 ERROR_MSG = "ERROR"
 POINTS_PER_QUESTION = 5
 
@@ -121,6 +125,43 @@ def load_questions() -> None:
         questions = json.load(file)
 
 
+def load_questions_from_web() -> None:
+    """
+    Gets questions from a web service, removes ones that contain
+    the DATA_DELIMITER (HTML codes excluded), then append a unique
+    ID for each question using hashing, create a dictionary of all
+    questions and save them to a JSON file
+    :return: None
+    """
+    global questions
+
+    stock = requests.get(QUESTIONS_API_URL, params=QUESTIONS_SETTINGS).json().get("results")
+    DATA_DELIMITER = chatlib.DATA_DELIMITER
+
+    # Remove invalid questions & append unique IDs for each question
+    for question in stock:
+        # Data might be with HTML codes, remove these
+        question["question"] = html.unescape(question["question"])
+        question["correct_answer"] = html.unescape(question["correct_answer"])
+        question["incorrect_answers"] = [html.unescape(answer) for answer in question["incorrect_answers"]]
+
+        # if char '#' is still in question data, ignore question
+        if DATA_DELIMITER in question["question"]\
+                or DATA_DELIMITER in question["correct_answer"]\
+                or any(DATA_DELIMITER in ans for ans in question["incorrect_answers"]):
+            continue
+
+        # Hash the question to get a unique ID (hash-collision changes are low)
+        question_id = hashlib.md5(question["question"].encode()).hexdigest()[:8]
+        questions[question_id] = question  # Add question to dictionary
+
+    # Save changes to a file
+    with open(r"server database\web_questions.json", 'w') as file:
+        json.dump(questions, file, indent=4)
+
+    logging.info("Requested new questions successfully")
+
+
 def load_user_database() -> None:
     """
     Loads users dict from a JSON file.
@@ -212,7 +253,6 @@ def handle_logout_message(conn: socket) -> None:
         client_address = "unknown"
 
     client_sockets.remove(conn)
-    # TODO REMOVE FROM logged_users IF FORCED-CLOSED
     conn.close()
     logging.debug(f"Connection closed for client {client_address}")
     print_client_sockets(client_sockets)
@@ -266,8 +306,11 @@ def create_random_question(username: str) -> str | None:
 
     # Pick a question & convert to protocol's format
     question_id = random.sample(list(questions_not_asked), k=1)[0]  # Get a random ID
-    question = questions[question_id]
-    data = [str(question_id), question["question"], *question["answers"]]
+    question_data = questions[question_id]
+    actual_question = html.unescape(question_data["question"])  # Data might be with HTML codes, remove these
+    answers = [question_data["correct_answer"]] + question_data["incorrect_answers"]  # 1 list of all possible answers
+    random.shuffle(answers)  # Randomize order of answers
+    data = [str(question_id), actual_question, *answers]
     return chatlib.join_data(data)
 
 
@@ -326,7 +369,7 @@ def handle_answer_message(conn: socket, username: str, data: str) -> None:
     global questions
     global users
     question_id, answer = chatlib.split_data(data, 2)
-    correct_answer = str(questions[question_id]["correct"])
+    correct_answer = questions[question_id]["correct_answer"]
 
     # Add qID to questions asked
     users[username]["questions_asked"].append(question_id)
@@ -383,21 +426,24 @@ def handle_client_message(conn: socket, cmd: str, data: str) -> None:
 
 
 def main():
-    # Initializes global users and questions dictionaries using load functions, will be used later
     global users
     global questions
     global client_sockets
     global messages_to_send
-    load_user_database()
-    load_questions()
 
     # Config logging for info & debug
     logging.basicConfig(level=logging.DEBUG, format='%(levelname)s: %(message)s')
+
+    # Load data
+    load_user_database()
+    # load_questions()  # From a static file
+    load_questions_from_web()
 
     server_socket = setup_socket()
     logging.info(f"Server is up and listening on port {SERVER_PORT}...")
 
     while True:
+        # Scan new data from all sockets into lists
         ready_to_read, ready_to_write, _ = select.select({server_socket}.union(client_sockets), client_sockets, [])
 
         # Scan the ready-to-read sockets
@@ -416,7 +462,7 @@ def main():
                     continue
 
                 if not bool(cmd):
-                    # User wants to disconnect
+                    # Empty string, user wants to disconnect
                     handle_logout_message(current_socket)
                 else:
                     # Handle client command
