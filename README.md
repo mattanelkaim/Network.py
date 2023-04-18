@@ -25,3 +25,8 @@
         The server allows connections within its subnet.
     </li>
 </ul>
+
+---
+
+<h2>Notes</h2>
+<p>There are compiled versions of both server & client files. They were compiled using Python 3.11.2 </p>
