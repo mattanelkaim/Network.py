@@ -32,7 +32,7 @@
             <li><em>logging</em> - log debugging info</li>
         </ul>
         <br>
-        The server scans client connections only <strong>within its subnet</strong>.
+        The trivia server scans client connections only <strong>within its subnet</strong>.
     </li>
 </ul>
 
