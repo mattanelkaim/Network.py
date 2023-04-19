@@ -1,0 +1,1 @@
+pyinstaller --onefile --distpath "%CD%" --hidden-import client_trivia client_trivia.py chatlib.py
