@@ -38,5 +38,11 @@
 
 ---
 
-<h2>Notes</h2>
-<p>There are <strong>compiled</strong> versions of both <strong>server & client</strong> files. They were compiled using <strong>Python 3.11.2</strong>.</p>
+<h2>Instructions -Trivia Game</h2>
+<ol>
+    <li>Use <em>ipconfig</em> in the server's machine and assign the IP to the <strong><em>SERVER_IP</em> variable</strong>.</li>
+    <li>In the client file*, provide the <strong>IP address</strong> of the server (which is located in the <strong>same subnet)</strong>.</li>
+    <li><strong>Run</strong> the server file.</li>
+    <li>Run as many clients as you want, <strong>play the game</strong> and show off your knowledge in computer science!</li>
+</ol>
+<p>* You can then compile the client file with the <em>compile_client.bat</em> script.</p>

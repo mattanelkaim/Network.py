@@ -2,7 +2,7 @@
 import socket
 import chatlib
 
-SERVER_IP = "192.168.22.69"  # Change to loopback
+SERVER_IP = "127.0.0.1"  # CHANGE TO SERVER'S IP
 SERVER_PORT = 5678
 BUFFER_SIZE = 1024
 IS_DEBUG = False  # Print debug info in functions
