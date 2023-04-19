@@ -1,14 +1,14 @@
 {
-    "cc8d0112": {
+    "97ac0fd1": {
         "category": "Science: Computers",
         "type": "multiple",
-        "difficulty": "hard",
-        "question": "The Harvard architecture for micro-controllers added which additional bus?",
-        "correct_answer": "Instruction",
+        "difficulty": "easy",
+        "question": "Which company was established on April 1st, 1976 by Steve Jobs, Steve Wozniak and Ronald Wayne?",
+        "correct_answer": "Apple",
         "incorrect_answers": [
-            "Address",
-            "Data",
-            "Control"
+            "Microsoft",
+            "Atari",
+            "Commodore"
         ]
     },
     "8ab1fd1c": {
@@ -23,64 +23,52 @@
             "Central Processor Unit"
         ]
     },
-    "64de3fef": {
-        "category": "Science: Computers",
-        "type": "multiple",
-        "difficulty": "medium",
-        "question": "Moore's law originally stated that the number of transistors on a microprocessor chip would double every...",
-        "correct_answer": "Year",
-        "incorrect_answers": [
-            "Four Years",
-            "Two Years",
-            "Eight Years"
-        ]
-    },
-    "af5faa38": {
-        "category": "Science: Computers",
-        "type": "multiple",
-        "difficulty": "medium",
-        "question": "What does AD stand for in relation to Windows Operating Systems? ",
-        "correct_answer": "Active Directory",
-        "incorrect_answers": [
-            "Alternative Drive",
-            "Automated Database",
-            "Active Department"
-        ]
-    },
-    "2fb4ee5d": {
+    "316c8984": {
         "category": "Science: Computers",
         "type": "multiple",
         "difficulty": "easy",
-        "question": "HTML is what type of language?",
-        "correct_answer": "Markup Language",
+        "question": "According to the International System of Units, how many bytes are in a kilobyte of RAM?",
+        "correct_answer": "1000",
         "incorrect_answers": [
-            "Macro Language",
-            "Programming Language",
-            "Scripting Language"
+            "512",
+            "1024",
+            "500"
         ]
     },
-    "35284733": {
+    "fab08357": {
         "category": "Science: Computers",
         "type": "multiple",
         "difficulty": "easy",
-        "question": "What amount of bits commonly equals one byte?",
-        "correct_answer": "8",
+        "question": "When Gmail first launched, how much storage did it provide for your email?",
+        "correct_answer": "1GB",
         "incorrect_answers": [
-            "1",
-            "2",
-            "64"
+            "512MB",
+            "5GB",
+            "Unlimited"
         ]
     },
-    "2f5a0985": {
+    "683b41fd": {
         "category": "Science: Computers",
         "type": "multiple",
-        "difficulty": "medium",
-        "question": "On which computer hardware device is the BIOS chip located?",
+        "difficulty": "easy",
+        "question": "What does GHz stand for?",
+        "correct_answer": "Gigahertz",
+        "incorrect_answers": [
+            "Gigahotz",
+            "Gigahetz",
+            "Gigahatz"
+        ]
+    },
+    "85af0827": {
+        "category": "Science: Computers",
+        "type": "multiple",
+        "difficulty": "easy",
+        "question": "Which computer hardware device provides an interface for all other connected devices to communicate?",
         "correct_answer": "Motherboard",
         "incorrect_answers": [
-            "Hard Disk Drive",
             "Central Processing Unit",
-            "Graphics Processing Unit"
+            "Hard Disk Drive",
+            "Random Access Memory"
         ]
     },
     "efd8f854": {
@@ -95,18 +83,6 @@
             "Python"
         ]
     },
-    "2df1f112": {
-        "category": "Science: Computers",
-        "type": "multiple",
-        "difficulty": "easy",
-        "question": "What does the Prt Sc button do?",
-        "correct_answer": "Captures what's on the screen and copies it to your clipboard",
-        "incorrect_answers": [
-            "Nothing",
-            "Saves a .png file of what's on the screen in your screenshots folder in photos",
-            "Closes all windows"
-        ]
-    },
     "22335f08": {
         "category": "Science: Computers",
         "type": "multiple",
@@ -119,28 +95,16 @@
             "Adobe Photoshop"
         ]
     },
-    "e4145cfb": {
-        "category": "Science: Computers",
-        "type": "multiple",
-        "difficulty": "medium",
-        "question": "The computer OEM manufacturer Clevo, known for its Sager notebook line, is based in which country?",
-        "correct_answer": "Taiwan",
-        "incorrect_answers": [
-            "United States",
-            "Germany",
-            "China (People's Republic of)"
-        ]
-    },
-    "acecd484": {
+    "674f824b": {
         "category": "Science: Computers",
         "type": "multiple",
         "difficulty": "easy",
-        "question": "What is the most preferred image format used for logos in the Wikimedia database?",
-        "correct_answer": ".svg",
+        "question": "The series of the Intel HD graphics generation succeeding that of the 5000 and 6000 series (Broadwell) is called:",
+        "correct_answer": "HD Graphics 500",
         "incorrect_answers": [
-            ".png",
-            ".jpeg",
-            ".gif"
+            "HD Graphics 700 ",
+            "HD Graphics 600",
+            "HD Graphics 7000"
         ]
     },
     "ec08ceee": {
@@ -155,42 +119,6 @@
             "The Ominous Router"
         ]
     },
-    "95a4face": {
-        "category": "Science: Computers",
-        "type": "multiple",
-        "difficulty": "medium",
-        "question": "What was the first commerically available computer processor?",
-        "correct_answer": "Intel 4004",
-        "incorrect_answers": [
-            "Intel 486SX",
-            "TMS 1000",
-            "AMD AM386"
-        ]
-    },
-    "b657d010": {
-        "category": "Science: Computers",
-        "type": "multiple",
-        "difficulty": "medium",
-        "question": "What was the name given to Android 4.3?",
-        "correct_answer": "Jelly Bean",
-        "incorrect_answers": [
-            "Lollipop",
-            "Nutella",
-            "Froyo"
-        ]
-    },
-    "49340c96": {
-        "category": "Science: Computers",
-        "type": "multiple",
-        "difficulty": "easy",
-        "question": "In web design, what does CSS stand for?",
-        "correct_answer": "Cascading Style Sheet",
-        "incorrect_answers": [
-            "Counter Strike: Source",
-            "Corrective Style Sheet",
-            "Computer Style Sheet"
-        ]
-    },
     "f4e8e3ad": {
         "category": "Science: Computers",
         "type": "multiple",
@@ -201,6 +129,18 @@
             ".tu",
             ".tt",
             ".tl"
+        ]
+    },
+    "49e89d4e": {
+        "category": "Science: Computers",
+        "type": "multiple",
+        "difficulty": "hard",
+        "question": "The internet domain .fm is the country-code top-level domain for which Pacific Ocean island nation?",
+        "correct_answer": "Micronesia",
+        "incorrect_answers": [
+            "Fiji",
+            "Tuvalu",
+            "Marshall Islands"
         ]
     },
     "646ded0c": {
@@ -227,40 +167,76 @@
             "1048576"
         ]
     },
-    "653e770c": {
+    "396ab686": {
         "category": "Science: Computers",
         "type": "multiple",
         "difficulty": "medium",
-        "question": "What is the name of the default theme that is installed with Windows XP?",
-        "correct_answer": "Luna",
+        "question": "Generally, which component of a computer draws the most power?",
+        "correct_answer": "Video Card",
         "incorrect_answers": [
-            "Neptune",
-            "Whistler",
-            "Bliss"
+            "Hard Drive",
+            "Processor",
+            "Power Supply"
         ]
     },
-    "c3d6f0ff": {
-        "category": "Science: Computers",
-        "type": "multiple",
-        "difficulty": "easy",
-        "question": "On Twitter, what was the original character limit for a Tweet?",
-        "correct_answer": "140",
-        "incorrect_answers": [
-            "120",
-            "160",
-            "100"
-        ]
-    },
-    "0ca46622": {
+    "1c9f1b37": {
         "category": "Science: Computers",
         "type": "multiple",
         "difficulty": "medium",
-        "question": "In CSS, which of these values CANNOT be used with the \"position\" property?",
-        "correct_answer": "center",
+        "question": "How many cores does the Intel i7-6950X have?",
+        "correct_answer": "10",
         "incorrect_answers": [
-            "static",
-            "absolute",
-            "relative"
+            "12",
+            "8",
+            "4"
+        ]
+    },
+    "76a17f59": {
+        "category": "Science: Computers",
+        "type": "multiple",
+        "difficulty": "hard",
+        "question": "Which of these names was an actual codename for a cancelled Microsoft project?",
+        "correct_answer": "Neptune",
+        "incorrect_answers": [
+            "Enceladus",
+            "Pollux",
+            "Saturn"
+        ]
+    },
+    "7deafb78": {
+        "category": "Science: Computers",
+        "type": "multiple",
+        "difficulty": "hard",
+        "question": "What port does HTTP run on?",
+        "correct_answer": "80",
+        "incorrect_answers": [
+            "53",
+            "443",
+            "23"
+        ]
+    },
+    "85d6f170": {
+        "category": "Science: Computers",
+        "type": "multiple",
+        "difficulty": "medium",
+        "question": "In HTML, which non-standard tag used to be be used to make elements scroll across the viewport?",
+        "correct_answer": "<marquee></marquee>",
+        "incorrect_answers": [
+            "<scroll></scroll>",
+            "<move></move>",
+            "<slide></slide>"
+        ]
+    },
+    "2a789c7c": {
+        "category": "Science: Computers",
+        "type": "multiple",
+        "difficulty": "medium",
+        "question": "In programming, the ternary operator is mostly defined with what symbol(s)?",
+        "correct_answer": "?:",
+        "incorrect_answers": [
+            "??",
+            "if then",
+            "?"
         ]
     },
     "9aa7f48b": {
@@ -275,16 +251,28 @@
             "1 Gb/s"
         ]
     },
-    "27fa2eeb": {
+    "7e33627e": {
         "category": "Science: Computers",
         "type": "multiple",
         "difficulty": "medium",
-        "question": "Which operating system was released first?",
-        "correct_answer": "Mac OS",
+        "question": "What does \"LCD\" stand for?",
+        "correct_answer": "Liquid Crystal Display",
         "incorrect_answers": [
-            "Windows",
-            "Linux",
-            "OS/2"
+            "Language Control Design",
+            "Last Common Difference",
+            "Long Continuous Design"
+        ]
+    },
+    "892691b0": {
+        "category": "Science: Computers",
+        "type": "multiple",
+        "difficulty": "hard",
+        "question": "Who is the original author of the realtime physics engine called PhysX?",
+        "correct_answer": "NovodeX",
+        "incorrect_answers": [
+            "Ageia",
+            "Nvidia",
+            "AMD"
         ]
     },
     "74209ec3": {
@@ -299,40 +287,40 @@
             "Rwanda"
         ]
     },
-    "7094aada": {
+    "ffad61b9": {
+        "category": "Science: Computers",
+        "type": "multiple",
+        "difficulty": "easy",
+        "question": "The numbering system with a radix of 16 is more commonly referred to as ",
+        "correct_answer": "Hexidecimal",
+        "incorrect_answers": [
+            "Binary",
+            "Duodecimal",
+            "Octal"
+        ]
+    },
+    "d09dc609": {
         "category": "Science: Computers",
         "type": "multiple",
         "difficulty": "medium",
-        "question": ".at is the top-level domain for what country?",
-        "correct_answer": "Austria",
+        "question": "What does the term GPU stand for?",
+        "correct_answer": "Graphics Processing Unit",
         "incorrect_answers": [
-            "Argentina",
-            "Australia",
-            "Angola"
+            "Gaming Processor Unit",
+            "Graphite Producing Unit",
+            "Graphical Proprietary Unit"
         ]
     },
-    "a421e227": {
-        "category": "Science: Computers",
-        "type": "multiple",
-        "difficulty": "medium",
-        "question": "What is known as \"the brain\" of the Computer?",
-        "correct_answer": "Central Processing Unit",
-        "incorrect_answers": [
-            "Motherboard",
-            "Graphics Processing Unit",
-            "Keyboard"
-        ]
-    },
-    "7c0178d1": {
+    "a4948d43": {
         "category": "Science: Computers",
         "type": "multiple",
         "difficulty": "hard",
-        "question": "Which of the following is the oldest of these computers by release date?",
-        "correct_answer": "TRS-80",
+        "question": "America Online (AOL) started out as which of these online service providers?",
+        "correct_answer": "Quantum Link",
         "incorrect_answers": [
-            "Commodore 64",
-            "ZX Spectrum",
-            "Apple 3"
+            "CompuServe",
+            "Prodigy",
+            "GEnie"
         ]
     },
     "c3d05289": {
@@ -347,40 +335,28 @@
             "FTP"
         ]
     },
-    "f37d342e": {
+    "c3452993": {
         "category": "Science: Computers",
         "type": "multiple",
         "difficulty": "hard",
-        "question": "What does the International System of Quantities refer 1024 bytes as?",
-        "correct_answer": "Kibibyte",
+        "question": "Which of these is not a key value of Agile software development?",
+        "correct_answer": "Comprehensive documentation",
         "incorrect_answers": [
-            "Kylobyte",
-            "Kilobyte",
-            "Kelobyte"
+            "Individuals and interactions",
+            "Customer collaboration",
+            "Responding to change"
         ]
     },
-    "5769802b": {
+    "dddf792b": {
         "category": "Science: Computers",
         "type": "multiple",
-        "difficulty": "medium",
-        "question": "What was the first Android version specifically optimized for tablets?",
-        "correct_answer": "Honeycomb",
+        "difficulty": "easy",
+        "question": "This mobile OS held the largest market share in 2012.",
+        "correct_answer": "iOS",
         "incorrect_answers": [
-            "Eclair",
-            "Froyo",
-            "Marshmellow"
-        ]
-    },
-    "80220701": {
-        "category": "Science: Computers",
-        "type": "multiple",
-        "difficulty": "medium",
-        "question": "Which of these people was NOT a founder of Apple Inc?",
-        "correct_answer": "Jonathan Ive",
-        "incorrect_answers": [
-            "Steve Jobs",
-            "Ronald Wayne",
-            "Steve Wozniak"
+            "Android",
+            "BlackBerry",
+            "Symbian"
         ]
     },
     "78889382": {
@@ -395,18 +371,6 @@
             "RAID 5"
         ]
     },
-    "2aaecf02": {
-        "category": "Science: Computers",
-        "type": "multiple",
-        "difficulty": "hard",
-        "question": "What was the first company to use the term \"Golden Master\"?",
-        "correct_answer": "Apple",
-        "incorrect_answers": [
-            "IBM",
-            "Microsoft",
-            "Google"
-        ]
-    },
     "015c2321": {
         "category": "Science: Computers",
         "type": "multiple",
@@ -419,28 +383,16 @@
             "Mail Interleave Method Exchange"
         ]
     },
-    "6e2c097e": {
+    "53c961e0": {
         "category": "Science: Computers",
         "type": "multiple",
-        "difficulty": "medium",
-        "question": "Which programming language was developed by Sun Microsystems in 1995?",
-        "correct_answer": "Java",
+        "difficulty": "hard",
+        "question": "Released in 2001, the first edition of Apple's Mac OS X operating system (version 10.0) was given what animal code name?",
+        "correct_answer": "Cheetah",
         "incorrect_answers": [
-            "Python",
-            "Solaris OS",
-            "C++"
-        ]
-    },
-    "462d193f": {
-        "category": "Science: Computers",
-        "type": "multiple",
-        "difficulty": "medium",
-        "question": "The name of technology company HP stands for what?",
-        "correct_answer": "Hewlett-Packard",
-        "incorrect_answers": [
-            "Howard Packmann",
-            "Husker-Pollosk",
-            "Hellman-Pohl"
+            "Puma",
+            "Tiger",
+            "Leopard"
         ]
     },
     "b75c4fb5": {
@@ -455,28 +407,28 @@
             "Network"
         ]
     },
-    "757d4b85": {
+    "cbc27b77": {
         "category": "Science: Computers",
         "type": "multiple",
-        "difficulty": "easy",
-        "question": "Which programming language shares its name with an island in Indonesia?",
-        "correct_answer": "Java",
+        "difficulty": "hard",
+        "question": "Who invented the \"Spanning Tree Protocol\"?",
+        "correct_answer": "Radia Perlman",
         "incorrect_answers": [
-            "Python",
-            "C",
-            "Jakarta"
+            "Paul Vixie",
+            "Vint Cerf",
+            "Michael Roberts"
         ]
     },
-    "468d71f3": {
+    "6e1d1f66": {
         "category": "Science: Computers",
         "type": "multiple",
-        "difficulty": "easy",
-        "question": "How long is an IPv6 address?",
-        "correct_answer": "128 bits",
+        "difficulty": "medium",
+        "question": "In programming, what do you call functions with the same name but different implementations?",
+        "correct_answer": "Overloading",
         "incorrect_answers": [
-            "32 bits",
-            "64 bits",
-            "128 bytes"
+            "Overriding",
+            "Abstracting",
+            "Inheriting"
         ]
     },
     "833e0342": {
@@ -491,28 +443,40 @@
             "Land Address Navigation"
         ]
     },
-    "5fe26994": {
+    "87e76cfc": {
         "category": "Science: Computers",
         "type": "multiple",
         "difficulty": "medium",
-        "question": "How many bytes are in a single Kibibyte?",
-        "correct_answer": "1024",
+        "question": "What is the number of keys on a standard Windows Keyboard?",
+        "correct_answer": "104",
         "incorrect_answers": [
-            "2400",
-            "1000",
-            "1240"
+            "64",
+            "94",
+            "76"
         ]
     },
-    "b062e021": {
+    "54f622b2": {
         "category": "Science: Computers",
         "type": "multiple",
         "difficulty": "hard",
-        "question": "The acronym \"RIP\" stands for which of these?",
-        "correct_answer": "Routing Information Protocol",
+        "question": "What type of sound chip does the Super Nintendo Entertainment System (SNES) have?",
+        "correct_answer": "ADPCM Sampler",
         "incorrect_answers": [
-            "Runtime Instance Processes",
-            "Regular Interval Processes",
-            "Routine Inspection Protocol"
+            "FM Synthesizer",
+            "Programmable Sound Generator (PSG)",
+            "PCM Sampler"
+        ]
+    },
+    "4406c338": {
+        "category": "Science: Computers",
+        "type": "multiple",
+        "difficulty": "medium",
+        "question": "How many bits make up the significand portion of a single precision floating point number?",
+        "correct_answer": "23",
+        "incorrect_answers": [
+            "8",
+            "53",
+            "15"
         ]
     },
     "fd5ad0fc": {
@@ -527,6 +491,18 @@
             "Stable"
         ]
     },
+    "5c7a351c": {
+        "category": "Science: Computers",
+        "type": "multiple",
+        "difficulty": "easy",
+        "question": "What language does Node.js use?",
+        "correct_answer": "JavaScript",
+        "incorrect_answers": [
+            "Java",
+            "Java Source",
+            "Joomla Source Code"
+        ]
+    },
     "b8f3adc2": {
         "category": "Science: Computers",
         "type": "multiple",
@@ -537,30 +513,6 @@
             "Sandy Bridge",
             "Skylake",
             "Broadwell"
-        ]
-    },
-    "6fab5d64": {
-        "category": "Science: Computers",
-        "type": "multiple",
-        "difficulty": "hard",
-        "question": "Which of these Cherry MX mechanical keyboard switches is both tactile and clicky?",
-        "correct_answer": "Cherry MX Blue",
-        "incorrect_answers": [
-            "Cherry MX Black",
-            "Cherry MX Red",
-            "Cherry MX Brown"
-        ]
-    },
-    "d03b2b41": {
-        "category": "Science: Computers",
-        "type": "multiple",
-        "difficulty": "hard",
-        "question": "Which kind of algorithm is Ron Rivest not famous for creating?",
-        "correct_answer": "Secret sharing scheme",
-        "incorrect_answers": [
-            "Hashing algorithm",
-            "Asymmetric encryption",
-            "Stream cipher"
         ]
     },
     "70b3526e": {
