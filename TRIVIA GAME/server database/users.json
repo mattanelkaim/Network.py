@@ -24,7 +24,10 @@
     },
     "master": {
         "password": "master",
-        "score": 210,
-        "questions_asked": []
+        "score": 215,
+        "questions_asked": [
+            "fab08357",
+            "c3452993"
+        ]
     }
 }
