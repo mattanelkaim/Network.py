@@ -1,13 +1,12 @@
 """
-Implementing timeouts & retransmissions in a UDP connection
+Implementing timeouts & retransmissions and checksum in a UDP connection
 """
 import socket
 import random
 
 IP, PORT = "127.0.0.1", 8821
 BUFFER_SIZE = 1024
-MAX_DIGITS_SERIAL = 4
-MAX_SERIAL_NUM = 10_000
+CHECKSUM_LEN = 16  # 16 bits
 TIMEOUT_IN_SECONDS = 5
 
 
@@ -26,16 +25,32 @@ def special_sendto(conn: socket, response: str, client_address: tuple[str, int])
     if not (fail == 1):
         conn.sendto(response.encode(), client_address)
     else:
-        print("Oops")
+        print("Connection interrupted :(")
+
+
+def calc_checksum(msg_data: str) -> str:
+    """
+    Sums all the ASCII values in a given string,
+    then formats to a string with length 16
+    :param msg_data: The string to calculate its checksum
+    :type msg_data: str
+    :return: The checksum
+    :rtype: str
+    """
+    total = sum(ord(x) for x in msg_data)  # Sum of all ASCII chars
+    return str(total).rjust(CHECKSUM_LEN, "0")  # Formats to a 16-length string
 
 
 client_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 
-msg, msg_id = "", "0000"
-while msg != "EXIT":
+data = ""  # Holds data and checksum
+while data != "EXIT":
     # Get message from user and send to server
-    msg = msg_id + input("Enter your message\n")
-    print("sending original")
+    data = input("Enter your message:\n")
+    checksum = calc_checksum(data)
+    msg = checksum + data
+
+    print("sending original...")
     special_sendto(client_socket, msg, (IP, PORT))
 
     # Handle timeouts and receive data from server
@@ -47,12 +62,12 @@ while msg != "EXIT":
             print("Timeout exceeded! Retransmitting...")
             special_sendto(client_socket, msg, (IP, PORT))
         else:
-            break
+            server_response = server_msg.decode()[CHECKSUM_LEN:]  # Get rid of checksum
+            if server_response == "Bad Checksum":
+                print("Checksum is bad, retransmitting...")
+                continue
+            break  # Everything is OK
 
-    data = server_msg.decode()
-    print(f"Server sent: {data}\n")
-
-    # Increment msg_id
-    msg_id = str((int(msg_id) + 1) % MAX_SERIAL_NUM).rjust(MAX_DIGITS_SERIAL, "0")
+    print(f"Server sent: {server_response}\n")
 
 client_socket.close()
