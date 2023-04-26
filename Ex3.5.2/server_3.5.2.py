@@ -1,14 +1,14 @@
 """
-A simple UDP echo server
+A simple UDP echo server, uses checksum
 """
 import socket
 import random
 
 IP, PORT = "0.0.0.0", 8821
 BUFFER_SIZE = 1024
-MAX_DIGITS_SERIAL = 4
-MAX_SERIAL_NUM = 10_000
+CHECKSUM_LEN = 16  # 16 bits
 TIMEOUT_IN_SECONDS = 10
+CHECKSUM_ERROR_MSG = "Bad checksum"
 
 
 def special_sendto(conn: socket, response: str, client_address: tuple[str, int]) -> None:
@@ -26,7 +26,20 @@ def special_sendto(conn: socket, response: str, client_address: tuple[str, int])
     if not (fail == 1):
         conn.sendto(response.encode(), client_address)
     else:
-        print("Oops")
+        print("Connection interrupted :(")
+
+
+def calc_checksum(msg_data: str) -> str:
+    """
+    Sums all the ASCII values in a given string,
+    then formats to a string with length 16
+    :param msg_data: The string to calculate its checksum
+    :type msg_data: str
+    :return: The checksum
+    :rtype: str
+    """
+    total = sum(ord(x) for x in msg_data)  # Sum of all ASCII chars
+    return str(total).rjust(CHECKSUM_LEN, "0")  # Formats to a 16-length string
 
 
 # Create a UDP socket
@@ -37,10 +50,20 @@ data = ""
 while data != "EXIT":
     # Read messages from client
     client_msg, client_addr = server_socket.recvfrom(BUFFER_SIZE)
-    data = client_msg.decode()
-    print(f"Client sent: {data}")
+    client_msg = client_msg.decode()
+    client_checksum, data = client_msg[:CHECKSUM_LEN], client_msg[CHECKSUM_LEN:]  # Split checksum and data
 
-    # Echo back to the client
-    special_sendto(server_socket, data, client_addr)
+    # Calculate checksum on server and validate data
+    server_checksum = calc_checksum(data)
+    if server_checksum == client_checksum:  # Data is ok
+        print(f"Client sent: {data}")
+    else:
+        print(CHECKSUM_ERROR_MSG)
+        data = CHECKSUM_ERROR_MSG  # Send this error to the client
+        server_checksum = calc_checksum(CHECKSUM_ERROR_MSG)
+
+    # Send back to the client
+    response_msg = server_checksum + data
+    special_sendto(server_socket, response_msg, client_addr)
 
 server_socket.close()
