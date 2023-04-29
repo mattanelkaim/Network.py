@@ -26,7 +26,8 @@ def print_clients_sockets(sockets: list[socket]) -> None:
 
 def close_socket(conn: socket, client_sockets: list[socket]) -> None:
     """
-    Closes a client socket and removes it from the list, then prints connected clients
+    Closes a client socket and removes it from the list,
+    then prints connected clients
     :param conn: The socket connection to close
     :type conn: socket
     :param client_sockets: The list of all client sockets
@@ -54,7 +55,8 @@ def main():
     client_sockets = []
     unsent_messages = []  # In case client isn't ready to receive messages
     while True:
-        ready_to_read, ready_to_write, _ = select.select([server_socket] + client_sockets, client_sockets, [])
+        ready_to_read, ready_to_write, _ = select.select(
+            [server_socket] + client_sockets, client_sockets, [])
 
         # Scan the ready-to-read sockets
         for current_socket in ready_to_read:
