@@ -11,20 +11,20 @@ TIMEOUT_IN_SECONDS = 10
 CHECKSUM_ERROR_MSG = "Bad checksum"
 
 
-def special_sendto(conn: socket, response: str, client_address: tuple[str, int]) -> None:
+def special_sendto(conn: socket, response: str, addr: tuple[str, int]) -> None:
     """
     A sending function provided by the course itself
     :param conn: The socket connection
     :type conn: socket
     :param response: The data to send
     :type response: str
-    :param client_address: The address to send to
-    :type client_address: tuple[str, int]
+    :param addr: The address to send to
+    :type addr: tuple[str, int]
     :return: None
     """
     fail = random.randint(1, 3)
     if not (fail == 1):
-        conn.sendto(response.encode(), client_address)
+        conn.sendto(response.encode(), addr)
     else:
         print("Connection interrupted :(")
 
@@ -51,11 +51,12 @@ while data != "EXIT":
     # Read messages from client
     client_msg, client_addr = server_socket.recvfrom(BUFFER_SIZE)
     client_msg = client_msg.decode()
-    client_checksum, data = client_msg[:CHECKSUM_LEN], client_msg[CHECKSUM_LEN:]  # Split checksum and data
+    # Split checksum and data
+    checksum, data = client_msg[:CHECKSUM_LEN], client_msg[CHECKSUM_LEN:]
 
     # Calculate checksum on server and validate data
     server_checksum = calc_checksum(data)
-    if server_checksum == client_checksum:  # Data is ok
+    if server_checksum == checksum:  # Data is ok
         print(f"Client sent: {data}")
     else:
         print(CHECKSUM_ERROR_MSG)

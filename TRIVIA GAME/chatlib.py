@@ -2,12 +2,11 @@
 IMPORTANT: server.pyc file works only with 3.8.2 version!
 """
 
-# In some GIVEN functions, msg and data are opposite to each other for some reason
 NUM_OF_FIELDS = 3  # ADDED TO FURTHER CHECK VALIDITY OF MESSAGES
 CMD_FIELD_LENGTH = 16  # Exact length of cmd field (in bytes)
 LENGTH_FIELD_LENGTH = 4  # Exact length of length field (in bytes)
-MAX_DATA_LENGTH = 10 ** LENGTH_FIELD_LENGTH - 1  # Max possible size of data field
-MSG_HEADER_LENGTH = CMD_FIELD_LENGTH + 1 + LENGTH_FIELD_LENGTH + 1
+MAX_DATA_LENGTH = 10 ** LENGTH_FIELD_LENGTH - 1  # Max data field size
+MSG_HEADER_LENGTH = CMD_FIELD_LENGTH + LENGTH_FIELD_LENGTH + 2
 MAX_MSG_LENGTH = MSG_HEADER_LENGTH + MAX_DATA_LENGTH
 DELIMITER = "|"
 DATA_DELIMITER = "#"
@@ -42,7 +41,7 @@ ERROR_RETURN = None
 
 def build_message(cmd: str, data: str) -> str | None:
     """
-    Gets command name (str) and data field (str) and creates a valid protocol message.
+    Gets command name and data field, then creates a valid protocol message.
     Valid message: <cmd>:(whitespace:16)|<data_len>(whitespace/zeros:4)|<data>
     :param cmd: The command of the message
     :type cmd: str
@@ -56,8 +55,10 @@ def build_message(cmd: str, data: str) -> str | None:
     if len(cmd) > CMD_FIELD_LENGTH or data_len > MAX_DATA_LENGTH:
         return ERROR_RETURN
 
-    formatted_len = str(data_len).zfill(LENGTH_FIELD_LENGTH)  # Add leading zeros until limit
-    formatted_cmd = cmd.ljust(CMD_FIELD_LENGTH)  # Add whitespace to the right cmd, until limit
+    # Add leading zeros until limit
+    formatted_len = str(data_len).zfill(LENGTH_FIELD_LENGTH)
+    # Add whitespace to the right cmd, until limit
+    formatted_cmd = cmd.ljust(CMD_FIELD_LENGTH)
 
     return f"{formatted_cmd}{DELIMITER}{formatted_len}{DELIMITER}{data}"
 
@@ -100,8 +101,9 @@ def parse_message(msg: str) -> tuple[str, str] | tuple[None, None]:
 
 def split_data(msg: str, expected_fields: int) -> list[str] | list[None]:
     """
-    Helper method. gets a string and number of expected fields in it. Splits the string
-    using protocol's data field delimiter (|#) and validates that there are correct number of fields.
+    Helper method. Gets a string and number of expected fields in it.
+    Splits the string using protocol's data field delimiter (|#)
+    and validates that there are correct number of fields.
     :param msg: The message to split
     :type msg: str
     :param expected_fields: The number of expected fields
@@ -115,18 +117,11 @@ def split_data(msg: str, expected_fields: int) -> list[str] | list[None]:
 
 def join_data(msg_fields: list[str]) -> str:
     """
-    Helper method. Gets a list, joins all of its fields to one string divided by the data delimiter.
+    Helper method. Gets a list, joins all of its fields to one string
+    divided by the data delimiter.
     :param msg_fields: The data fields to join
     :type msg_fields: list
     :return: A joined string that looks like cell1#cell2#cell3
     :rtype: str
     """
     return DATA_DELIMITER.join(msg_fields)
-
-
-def main():
-    print(parse_message("ERROR           |0015|Error Occurred!"))
-
-
-if __name__ == '__main__':
-    main()

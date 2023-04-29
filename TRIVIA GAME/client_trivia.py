@@ -14,7 +14,8 @@ def connect() -> socket:
     :return: The new socket connected to the server
     :rtype: socket
     """
-    client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)  # New TCP socket
+    # New TCP socket
+    client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     client_socket.connect((SERVER_IP, SERVER_PORT))  # Server address
     return client_socket
 
@@ -38,13 +39,13 @@ def build_and_send_message(conn: socket, code: str, data: str) -> None:
     conn.send(message.encode())  # Send to server
 
 
-def recv_message_and_parse(conn: socket) -> tuple[str, str] | tuple[None, None]:
+def recv_msg_and_parse(conn: socket) -> tuple[str, str] | tuple[None, None]:
     """
     Receives a new message from given socket, prints debug info,
     then parses the message using chatlib
     :param conn: The socket connection
     :type conn: socket
-    :return: cmd and data of the received message, or (None, None) if error occurred
+    :return: cmd and data of received message, (None, None) if error occurred
     :rtype: tuple[str, str] | tuple[None, None]
     """
     full_msg = conn.recv(BUFFER_SIZE).decode()  # Get server response
@@ -68,7 +69,7 @@ def build_send_recv_parse(conn: socket, cmd: str, data: str) -> tuple[str, str] 
     :rtype: tuple[str, str] | tuple[None, None]
     """
     build_and_send_message(conn, cmd, data)
-    cmd, data = recv_message_and_parse(conn)
+    cmd, data = recv_msg_and_parse(conn)
     return cmd, data
 
 
@@ -83,7 +84,6 @@ def error_and_exit(error_msg: str) -> None:
     exit()  # Terminate program
 
 
-# Valid inputs on server.pyc: username: test ; password: test, username: abc ; password: 123
 def login(conn: socket) -> None:
     """
     Uses user's input to send to socket login info,
@@ -107,7 +107,7 @@ def login(conn: socket) -> None:
 
         # Send to server & get response
         build_and_send_message(conn, chatlib.PROTOCOL_CLIENT["login_msg"], user_info)
-        response_cmd, response_data = recv_message_and_parse(conn)
+        response_cmd, response_data = recv_msg_and_parse(conn)
 
         # Check if login was successful
         if response_cmd == chatlib.PROTOCOL_SERVER["login_ok_msg"]:

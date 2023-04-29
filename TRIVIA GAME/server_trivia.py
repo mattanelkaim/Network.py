@@ -50,13 +50,13 @@ def build_and_send_message(conn: socket, code: str, data: str) -> None:
     messages_to_send.append((conn, message))
 
 
-def recv_message_and_parse(conn: socket) -> tuple[str, str] | tuple[None, None]:
+def recv_msg_and_parse(conn: socket) -> tuple[str, str] | tuple[None, None]:
     """
     Receives a new message from given socket, logs debug info,
     then parses the message using chatlib format
     :param conn: The socket connection
     :type conn: socket
-    :return: cmd and data of the received message, or (None, None) if error occurred
+    :return: cmd and data of received message, (None, None) if error occurred
     :rtype: tuple[str, str] | tuple[None, None]
     """
     full_msg = conn.recv(BUFFER_SIZE).decode()  # Get server response
@@ -136,7 +136,7 @@ def load_questions_from_web() -> None:
     global questions
 
     stock = requests.get(QUESTIONS_API_URL, params=QUESTIONS_SETTINGS).json().get("results")
-    DATA_DELIMITER = chatlib.DATA_DELIMITER
+    data_delimiter = chatlib.DATA_DELIMITER
 
     # Remove invalid questions & append unique IDs for each question
     for question in stock:
@@ -146,9 +146,9 @@ def load_questions_from_web() -> None:
         question["incorrect_answers"] = [html.unescape(answer) for answer in question["incorrect_answers"]]
 
         # if char '#' is still in question data, ignore question
-        if DATA_DELIMITER in question["question"]\
-                or DATA_DELIMITER in question["correct_answer"]\
-                or any(DATA_DELIMITER in ans for ans in question["incorrect_answers"]):
+        if data_delimiter in question["question"]\
+                or data_delimiter in question["correct_answer"]\
+                or any(data_delimiter in ans for ans in question["incorrect_answers"]):
             continue
 
         # Hash the question to get a unique ID (hash-collision changes are low)
@@ -456,7 +456,7 @@ def main():
             else:
                 # Handle clients
                 try:
-                    cmd, data = recv_message_and_parse(current_socket)
+                    cmd, data = recv_msg_and_parse(current_socket)
                 except (ConnectionResetError, ConnectionAbortedError):
                     handle_logout_message(current_socket)
                     continue

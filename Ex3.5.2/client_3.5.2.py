@@ -10,20 +10,20 @@ CHECKSUM_LEN = 16  # 16 bits
 TIMEOUT_IN_SECONDS = 5
 
 
-def special_sendto(conn: socket, response: str, client_address: tuple[str, int]) -> None:
+def special_sendto(conn: socket, response: str, addr: tuple[str, int]) -> None:
     """
     A sending function provided by the course itself, to simulate packet loss
     :param conn: The socket connection
     :type conn: socket
     :param response: The data to send
     :type response: str
-    :param client_address: The address to send to
-    :type client_address: tuple[str, int]
+    :param addr: The address to send to
+    :type addr: tuple[str, int]
     :return: None
     """
     fail = random.randint(1, 3)
     if not (fail == 1):
-        conn.sendto(response.encode(), client_address)
+        conn.sendto(response.encode(), addr)
     else:
         print("Connection interrupted :(")
 
@@ -62,7 +62,8 @@ while data != "EXIT":
             print("Timeout exceeded! Retransmitting...")
             special_sendto(client_socket, msg, (IP, PORT))
         else:
-            server_response = server_msg.decode()[CHECKSUM_LEN:]  # Get rid of checksum
+            # Get rid of checksum
+            server_response = server_msg.decode()[CHECKSUM_LEN:]
             if server_response == "Bad Checksum":
                 print("Checksum is bad, retransmitting...")
                 continue
