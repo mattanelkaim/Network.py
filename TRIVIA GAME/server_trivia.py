@@ -38,11 +38,8 @@ def build_and_send_message(conn: socket.socket, code: str, data: str) -> None:
     Builds a new message using chatlib format, using code and data.
     Logs debug info, then appends msg to messages_to_send
     :param conn: The socket connection
-    :type conn: socket
     :param code: The command of the message
-    :type code: str
     :param data: The data of the message
-    :type data: str
     :return: None
     """
     global messages_to_send
@@ -56,9 +53,7 @@ def recv_msg_and_parse(conn: socket.socket) -> tuple[str, str] | tuple[None, Non
     Receives a new message from given socket, logs debug info,
     then parses the message using chatlib format
     :param conn: The socket connection
-    :type conn: socket
     :return: cmd and data of received message, (None, None) if error occurred
-    :rtype: tuple[str, str] | tuple[None, None]
     """
     full_msg = conn.recv(BUFFER_SIZE).decode()  # Get server response
     logging.debug(f"[CLIENT] {full_msg}")
@@ -70,9 +65,7 @@ def send_error(conn: socket.socket, error_msg: str) -> None:
     """
     Send a given error message to the given socket
     :param conn: The socket connection
-    :type conn: socket
     :param error_msg: The error info to send back to client
-    :type error_msg: str
     :return: None
     """
     build_and_send_message(conn, ERROR_MSG, error_msg)
@@ -82,14 +75,10 @@ def print_client_sockets(sockets: set[socket.socket]) -> None:
     """
     Logs all sockets details in a given list of sockets
     :param sockets: The list of the sockets
-    :type sockets: set[sockets]
     :return: None
     """
-    # Get clients' IPs and ports
-    connected_clients = []
-    for client in sockets:
-        client_address = client.getpeername()  # Compute only once
-        connected_clients.append(f"{client_address[0]}:{client_address[1]}")
+    # Get clients' IPs and ports, then format them in a string
+    connected_clients = ["{}:{}".format(*client.getpeername()) for client in sockets]
 
     # Log the details
     if connected_clients:
@@ -101,6 +90,7 @@ def print_client_sockets(sockets: set[socket.socket]) -> None:
 
 
 # DATA LOADERS
+
 
 def load_questions() -> None:
     """
@@ -180,12 +170,11 @@ def handle_get_score_message(conn: socket.socket) -> None:
     """
     Gets the score of a given socket, then sends it back to client
     :param conn: The socket connection
-    :type conn: socket
     :return: None
     """
     global users
-    username = logged_users.get(conn.getpeername())
     cmd = chatlib.PROTOCOL_SERVER["my_score_ok_msg"]
+    username = logged_users.get(conn.getpeername())
     data = str(users.get(username)["score"])
     build_and_send_message(conn, cmd, data)
 
@@ -195,7 +184,6 @@ def handle_highscore_message(conn: socket.socket) -> None:
     Finds the top 5 players, then sends them
     back as 'name: score\nname: score...'
     :param conn: The socket connection
-    :type conn: socket
     :return: None
     """
     global users
@@ -213,7 +201,6 @@ def handle_logged_message(conn: socket.socket) -> None:
     """
     Sends back all currently logged-in usernames
     :param conn: The socket connection
-    :type conn: socket
     :return: None
     """
     global logged_users
@@ -226,7 +213,6 @@ def handle_logout_message(conn: socket.socket) -> None:
     """
     Closes the given socket and removes user from logged_users dict
     :param conn: The socket connection
-    :type conn: socket
     :return: None
     """
     global logged_users
@@ -251,9 +237,7 @@ def handle_login_message(conn: socket.socket, data: str) -> None:
     Validates given login info with users dict. Sends an error to client if needed,
     else sends OK message and adds user and address to logged_users dict
     :param conn: The socket connection
-    :type conn: socket
     :param data: The login info to validate
-    :type data: str
     :return: None
     """
     global users
@@ -280,7 +264,6 @@ def create_random_question(username: str) -> str | None:
     Picks a random question, then returns it
     in the format 'id#question#ans1#ans2#...#correct'
     :return: The random question in the protocol format, None if no questions left
-    :rtype: str | None
     """
     global questions
     global users
@@ -306,7 +289,6 @@ def handle_question_message(conn: socket.socket) -> None:
     """
     Sends back to client a random question
     :param conn: The socket connection
-    :type conn: socket
     :return: None
     """
     global logged_users
@@ -330,9 +312,7 @@ def inc_score(username: str, points: int = POINTS_PER_QUESTION) -> None:
     """
     Increments score for a given username
     :param username: The user to inc their score
-    :type username: str
     :param points: Num of points to inc-by (default is POINTS_PER_QUESTION)
-    :type points: int
     :return: None
     """
     global users
@@ -347,9 +327,7 @@ def handle_answer_message(conn: socket.socket, data: str) -> None:
     then applies changes to file database and
     then sends feedback back to the client
     :param conn: The socket connection
-    :type conn: socket
     :param data: question_id#user_answer
-    :type data: str
     :return: None
     """
     global questions
@@ -378,11 +356,8 @@ def handle_client_message(conn: socket.socket, cmd: str, data: str) -> None:
     """
     Sends the data to another function based on the command
     :param conn: The socket connection
-    :type conn: socket
     :param cmd: The command of the message
-    :type cmd: str
     :param data: The data of the message
-    :type data: str
     :return: None
     """
     global logged_users

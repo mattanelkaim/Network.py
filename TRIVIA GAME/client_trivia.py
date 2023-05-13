@@ -1,7 +1,7 @@
 import socket
 import chatlib
 
-SERVER_IP = "192.168.179.24"  # CHANGE TO SERVER'S IP
+SERVER_IP = "loopback"  # CHANGE TO SERVER'S IP
 SERVER_PORT = 5678
 BUFFER_SIZE = 1024
 IS_DEBUG = False  # Print debug info in functions
@@ -12,12 +12,8 @@ def build_and_send_message(conn: socket.socket, code: str, data: str) -> None:
     Builds a new message using chatlib, using code and message.
     Prints debug info, then sends it to the given socket
     :param conn: The socket connection
-    :type conn: socket
     :param code: The command of the message
-    :type code: str
     :param data: The data of the message
-    :type data: str
-    :return: None
     """
     message = chatlib.build_message(code, data)
 
@@ -31,9 +27,7 @@ def recv_msg_and_parse(conn: socket.socket) -> tuple[str, str] | tuple[None, Non
     Receives a new message from given socket, prints debug info,
     then parses the message using chatlib
     :param conn: The socket connection
-    :type conn: socket
     :return: cmd and data of received message, (None, None) if error occurred
-    :rtype: tuple[str, str] | tuple[None, None]
     """
     full_msg = conn.recv(BUFFER_SIZE).decode()  # Get server response
 
@@ -47,13 +41,9 @@ def build_send_recv_parse(conn: socket.socket, cmd: str, data: str) -> tuple[str
     """
     Joins the sending & receiving functions to 1
     :param conn: The socket connection
-    :type conn: socket
     :param cmd: The command of the message
-    :type cmd: str
     :param data: The data of the message
-    :type data: str
     :return: cmd and data of the response, or (None, None) if error occurred
-    :rtype: tuple[str, str] | tuple[None, None]
     """
     build_and_send_message(conn, cmd, data)
     cmd, data = recv_msg_and_parse(conn)
@@ -64,7 +54,6 @@ def error_and_exit(error_msg: str) -> None:
     """
     Prints an error and terminates the program
     :param error_msg: The error to print
-    :type error_msg: str
     :return: None
     """
     print(error_msg)
@@ -76,7 +65,6 @@ def login(conn: socket.socket) -> None:
     Uses user's input to send to socket login info,
     then loops until login is successful
     :param conn: The socket connection
-    :type conn: socket
     :return: None
     """
     while True:
@@ -113,7 +101,6 @@ def logout(conn: socket.socket) -> None:
     """
     Sends to the server a logout request, prints debug info
     :param conn: The socket connection
-    :type conn: socket
     :return: None
     """
     cmd = chatlib.PROTOCOL_CLIENT["logout_msg"]
@@ -125,7 +112,6 @@ def get_score(conn: socket.socket) -> None:
     """
     Prints current score of user
     :param conn: The socket connection
-    :type conn: socket
     :return: None
     """
     # Send a request to server and get cmd & data
@@ -142,7 +128,6 @@ def get_highscore(conn: socket.socket) -> None:
     """
     Prints the highscore table
     :param conn: The socket connection
-    :type conn: socket
     :return: None
     """
     # Send a request to server and get cmd & data
@@ -159,7 +144,6 @@ def get_logged_users(conn: socket.socket) -> None:
     """
     Prints all users that are logged-in to the server
     :param conn: The socket connection
-    :type conn: socket
     :return: None
     """
     cmd = chatlib.PROTOCOL_CLIENT["get_logged_msg"]
@@ -176,7 +160,6 @@ def play_question(conn: socket.socket) -> None:
     Asks server for a question, sends the server the user's
     answer and displays the feedback from the server
     :param conn: The socket connection
-    :type conn: socket
     :return: None
     """
     # Get question from server
@@ -224,7 +207,7 @@ def play_question(conn: socket.socket) -> None:
 def print_menu() -> None:
     """
     Lists all commands and their functionalities
-    :return: none
+    :return: None
     """
     print("All commands:\n"
           "LOGOUT ------- logs out the user\n"
