@@ -32,7 +32,8 @@ POINTS_PER_QUESTION = 5
 
 # HELPER SOCKET METHODS
 
-def build_and_send_message(conn: socket, code: str, data: str) -> None:
+
+def build_and_send_message(conn: socket.socket, code: str, data: str) -> None:
     """
     Builds a new message using chatlib format, using code and data.
     Logs debug info, then appends msg to messages_to_send
@@ -50,7 +51,7 @@ def build_and_send_message(conn: socket, code: str, data: str) -> None:
     messages_to_send.append((conn, message))
 
 
-def recv_msg_and_parse(conn: socket) -> tuple[str, str] | tuple[None, None]:
+def recv_msg_and_parse(conn: socket.socket) -> tuple[str, str] | tuple[None, None]:
     """
     Receives a new message from given socket, logs debug info,
     then parses the message using chatlib format
@@ -65,19 +66,7 @@ def recv_msg_and_parse(conn: socket) -> tuple[str, str] | tuple[None, None]:
     return cmd, data
 
 
-def setup_socket() -> socket:
-    """
-    Creates a new listening TCP socket
-    :return: The new TCP socket (listening)
-    :rtype: socket
-    """
-    server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    server_socket.bind((SERVER_IP, SERVER_PORT))
-    server_socket.listen()
-    return server_socket
-
-
-def send_error(conn: socket, error_msg: str) -> None:
+def send_error(conn: socket.socket, error_msg: str) -> None:
     """
     Send a given error message to the given socket
     :param conn: The socket connection
@@ -89,7 +78,7 @@ def send_error(conn: socket, error_msg: str) -> None:
     build_and_send_message(conn, ERROR_MSG, error_msg)
 
 
-def print_client_sockets(sockets: set[socket]) -> None:
+def print_client_sockets(sockets: set[socket.socket]) -> None:
     """
     Logs all sockets details in a given list of sockets
     :param sockets: The list of the sockets
@@ -187,22 +176,21 @@ def write_to_users_file() -> None:
 
 # MESSAGE HANDLING
 
-def handle_get_score_message(conn: socket, username: str) -> None:
+def handle_get_score_message(conn: socket.socket) -> None:
     """
-    Gets the score of a given username, then sends it back to client
+    Gets the score of a given socket, then sends it back to client
     :param conn: The socket connection
     :type conn: socket
-    :param username: The username whose score needs to be sent
-    :type username: str
     :return: None
     """
     global users
+    username = logged_users.get(conn.getpeername())
     cmd = chatlib.PROTOCOL_SERVER["my_score_ok_msg"]
     data = str(users.get(username)["score"])
     build_and_send_message(conn, cmd, data)
 
 
-def handle_highscore_message(conn: socket) -> None:
+def handle_highscore_message(conn: socket.socket) -> None:
     """
     Finds the top 5 players, then sends them
     back as 'name: score\nname: score...'
@@ -221,7 +209,7 @@ def handle_highscore_message(conn: socket) -> None:
     build_and_send_message(conn, cmd, data)
 
 
-def handle_logged_message(conn: socket) -> None:
+def handle_logged_message(conn: socket.socket) -> None:
     """
     Sends back all currently logged-in usernames
     :param conn: The socket connection
@@ -234,7 +222,7 @@ def handle_logged_message(conn: socket) -> None:
     build_and_send_message(conn, cmd, data)
 
 
-def handle_logout_message(conn: socket) -> None:
+def handle_logout_message(conn: socket.socket) -> None:
     """
     Closes the given socket and removes user from logged_users dict
     :param conn: The socket connection
@@ -258,7 +246,7 @@ def handle_logout_message(conn: socket) -> None:
     print_client_sockets(client_sockets)
 
 
-def handle_login_message(conn: socket, data: str) -> None:
+def handle_login_message(conn: socket.socket, data: str) -> None:
     """
     Validates given login info with users dict. Sends an error to client if needed,
     else sends OK message and adds user and address to logged_users dict
@@ -314,7 +302,7 @@ def create_random_question(username: str) -> str | None:
     return chatlib.join_data(data)
 
 
-def handle_question_message(conn: socket) -> None:
+def handle_question_message(conn: socket.socket) -> None:
     """
     Sends back to client a random question
     :param conn: The socket connection
@@ -352,7 +340,7 @@ def inc_score(username: str, points: int = POINTS_PER_QUESTION) -> None:
     # Write changes to database later in handle_answer_message()
 
 
-def handle_answer_message(conn: socket, username: str, data: str) -> None:
+def handle_answer_message(conn: socket.socket, data: str) -> None:
     """
     Increments username's score if the answer is right,
     adds qID to questions asked,
@@ -360,14 +348,13 @@ def handle_answer_message(conn: socket, username: str, data: str) -> None:
     then sends feedback back to the client
     :param conn: The socket connection
     :type conn: socket
-    :param username: The username who answered the question
-    :type username: str
     :param data: question_id#user_answer
     :type data: str
     :return: None
     """
     global questions
     global users
+    username = logged_users.get(conn.getpeername())
     question_id, answer = chatlib.split_data(data, 2)
     correct_answer = questions[question_id]["correct_answer"]
 
@@ -387,7 +374,7 @@ def handle_answer_message(conn: socket, username: str, data: str) -> None:
     build_and_send_message(conn, cmd, data_to_send)
 
 
-def handle_client_message(conn: socket, cmd: str, data: str) -> None:
+def handle_client_message(conn: socket.socket, cmd: str, data: str) -> None:
     """
     Sends the data to another function based on the command
     :param conn: The socket connection
@@ -412,7 +399,7 @@ def handle_client_message(conn: socket, cmd: str, data: str) -> None:
         case "LOGOUT":  # chatlib.PROTOCOL_CLIENT.get("logout_msg")
             handle_logout_message(conn)
         case "MY_SCORE":  # chatlib.PROTOCOL_CLIENT.get("get_score_msg")
-            handle_get_score_message(conn, logged_users.get(conn.getpeername()))
+            handle_get_score_message(conn)
         case "HIGHSCORE":  # chatlib.PROTOCOL_CLIENT.get("get_highscore_msg")
             handle_highscore_message(conn)
         case "LOGGED":  # chatlib.PROTOCOL_CLIENT.get("get_logged_msg")
@@ -420,7 +407,7 @@ def handle_client_message(conn: socket, cmd: str, data: str) -> None:
         case "GET_QUESTION":  # chatlib.PROTOCOL_CLIENT.get("get_question_msg")
             handle_question_message(conn)
         case "SEND_ANSWER":  # chatlib.PROTOCOL_CLIENT.get("send_answer_msg")
-            handle_answer_message(conn, logged_users.get(conn.getpeername()), data)
+            handle_answer_message(conn, data)
         case _:
             send_error(conn, "Command does not exist")
 
@@ -439,7 +426,7 @@ def main():
     # load_questions()  # From a static file
     load_questions_from_web()
 
-    server_socket = setup_socket()
+    server_socket = socket.create_server((SERVER_IP, SERVER_PORT))
     logging.info(f"Server is up and listening on port {SERVER_PORT}...")
 
     while True:

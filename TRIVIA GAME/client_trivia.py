@@ -1,26 +1,13 @@
-# Ex2.6
 import socket
 import chatlib
 
-SERVER_IP = "127.0.0.1"  # CHANGE TO SERVER'S IP
+SERVER_IP = "192.168.179.24"  # CHANGE TO SERVER'S IP
 SERVER_PORT = 5678
 BUFFER_SIZE = 1024
 IS_DEBUG = False  # Print debug info in functions
 
 
-def connect() -> socket:
-    """
-    Establishes a new TCP connection to a server
-    :return: The new socket connected to the server
-    :rtype: socket
-    """
-    # New TCP socket
-    client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    client_socket.connect((SERVER_IP, SERVER_PORT))  # Server address
-    return client_socket
-
-
-def build_and_send_message(conn: socket, code: str, data: str) -> None:
+def build_and_send_message(conn: socket.socket, code: str, data: str) -> None:
     """
     Builds a new message using chatlib, using code and message.
     Prints debug info, then sends it to the given socket
@@ -39,7 +26,7 @@ def build_and_send_message(conn: socket, code: str, data: str) -> None:
     conn.send(message.encode())  # Send to server
 
 
-def recv_msg_and_parse(conn: socket) -> tuple[str, str] | tuple[None, None]:
+def recv_msg_and_parse(conn: socket.socket) -> tuple[str, str] | tuple[None, None]:
     """
     Receives a new message from given socket, prints debug info,
     then parses the message using chatlib
@@ -56,7 +43,7 @@ def recv_msg_and_parse(conn: socket) -> tuple[str, str] | tuple[None, None]:
     return cmd, data
 
 
-def build_send_recv_parse(conn: socket, cmd: str, data: str) -> tuple[str, str] | tuple[None, None]:
+def build_send_recv_parse(conn: socket.socket, cmd: str, data: str) -> tuple[str, str] | tuple[None, None]:
     """
     Joins the sending & receiving functions to 1
     :param conn: The socket connection
@@ -84,7 +71,7 @@ def error_and_exit(error_msg: str) -> None:
     exit()  # Terminate program
 
 
-def login(conn: socket) -> None:
+def login(conn: socket.socket) -> None:
     """
     Uses user's input to send to socket login info,
     then loops until login is successful
@@ -94,8 +81,13 @@ def login(conn: socket) -> None:
     """
     while True:
         # Get user input
-        username = input("Enter username:\n")
-        password = input("Enter password:\n")
+        try:
+            username = input("Enter username:\n")
+            password = input("Enter password:\n")
+        except KeyboardInterrupt:
+            error_and_exit("Goodbye!")
+            return
+
         # Check validity
         if chatlib.DELIMITER in username or chatlib.DATA_DELIMITER in username:
             print("Username can't contain | nor #. Please try again:")
@@ -117,7 +109,7 @@ def login(conn: socket) -> None:
             print(f"{response_data}. Please try again:\n")
 
 
-def logout(conn: socket) -> None:
+def logout(conn: socket.socket) -> None:
     """
     Sends to the server a logout request, prints debug info
     :param conn: The socket connection
@@ -129,7 +121,7 @@ def logout(conn: socket) -> None:
     print("Logout successful!")
 
 
-def get_score(conn: socket) -> None:
+def get_score(conn: socket.socket) -> None:
     """
     Prints current score of user
     :param conn: The socket connection
@@ -146,7 +138,7 @@ def get_score(conn: socket) -> None:
     print(f"Your score is {data}")
 
 
-def get_highscore(conn: socket) -> None:
+def get_highscore(conn: socket.socket) -> None:
     """
     Prints the highscore table
     :param conn: The socket connection
@@ -163,7 +155,7 @@ def get_highscore(conn: socket) -> None:
     print(f"High-score table:\n{data}")
 
 
-def get_logged_users(conn: socket) -> None:
+def get_logged_users(conn: socket.socket) -> None:
     """
     Prints all users that are logged-in to the server
     :param conn: The socket connection
@@ -179,7 +171,7 @@ def get_logged_users(conn: socket) -> None:
         error_and_exit(data)  # data holds error info
 
 
-def play_question(conn: socket) -> None:
+def play_question(conn: socket.socket) -> None:
     """
     Asks server for a question, sends the server the user's
     answer and displays the feedback from the server
@@ -206,7 +198,12 @@ def play_question(conn: socket) -> None:
 
     # Get a valid answer from user and send to server
     while True:
-        answer = input("Enter the answer (1-4): ")
+        try:
+            answer = input("Enter the answer (1-4): ")
+        except KeyboardInterrupt:
+            error_and_exit("Goodbye!")
+            return
+
         if answer in {"1", "2", "3", "4"}:
             break
         else:
@@ -240,14 +237,19 @@ def print_menu() -> None:
 
 def main():
     # Establish connection with server
-    client_socket = connect()
+    client_socket = socket.create_connection((SERVER_IP, SERVER_PORT))
     login(client_socket)
 
     print()  # Newline
     print_menu()
     while True:
         print()  # Newline
-        operation = input("Type command here...\n").upper()
+        try:
+            operation = input("Type command here...\n").upper()
+        except KeyboardInterrupt:
+            error_and_exit("Goodbye!")
+            return
+
         match operation:
             case "LOGOUT":
                 break

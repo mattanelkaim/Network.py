@@ -23,28 +23,28 @@
             "Central Processor Unit"
         ]
     },
-    "316c8984": {
+    "39a09133": {
         "category": "Science: Computers",
         "type": "multiple",
-        "difficulty": "easy",
-        "question": "According to the International System of Units, how many bytes are in a kilobyte of RAM?",
-        "correct_answer": "1000",
+        "difficulty": "medium",
+        "question": "Which internet company began life as an online bookstore called 'Cadabra'?",
+        "correct_answer": "Amazon",
         "incorrect_answers": [
-            "512",
-            "1024",
-            "500"
+            "eBay",
+            "Overstock",
+            "Shopify"
         ]
     },
-    "fab08357": {
+    "86fa4dc6": {
         "category": "Science: Computers",
         "type": "multiple",
         "difficulty": "easy",
-        "question": "When Gmail first launched, how much storage did it provide for your email?",
-        "correct_answer": "1GB",
+        "question": "What does the \"MP\" stand for in MP3?",
+        "correct_answer": "Moving Picture",
         "incorrect_answers": [
-            "512MB",
-            "5GB",
-            "Unlimited"
+            "Music Player",
+            "Multi Pass",
+            "Micro Point"
         ]
     },
     "683b41fd": {
@@ -59,40 +59,28 @@
             "Gigahatz"
         ]
     },
-    "85af0827": {
+    "5bf58674": {
         "category": "Science: Computers",
         "type": "multiple",
-        "difficulty": "easy",
-        "question": "Which computer hardware device provides an interface for all other connected devices to communicate?",
-        "correct_answer": "Motherboard",
+        "difficulty": "hard",
+        "question": "How many Hz does the video standard PAL support?",
+        "correct_answer": "50",
         "incorrect_answers": [
-            "Central Processing Unit",
-            "Hard Disk Drive",
-            "Random Access Memory"
+            "59",
+            "60",
+            "25"
         ]
     },
-    "efd8f854": {
-        "category": "Science: Computers",
-        "type": "multiple",
-        "difficulty": "easy",
-        "question": "If you were to code software in this language you'd only be able to type 0's and 1's.",
-        "correct_answer": "Binary",
-        "incorrect_answers": [
-            "JavaScript",
-            "C++",
-            "Python"
-        ]
-    },
-    "22335f08": {
+    "2f5a0985": {
         "category": "Science: Computers",
         "type": "multiple",
         "difficulty": "medium",
-        "question": "All of the following programs are classified as raster graphics editors EXCEPT:",
-        "correct_answer": "Inkscape",
+        "question": "On which computer hardware device is the BIOS chip located?",
+        "correct_answer": "Motherboard",
         "incorrect_answers": [
-            "Paint.NET",
-            "GIMP",
-            "Adobe Photoshop"
+            "Hard Disk Drive",
+            "Central Processing Unit",
+            "Graphics Processing Unit"
         ]
     },
     "674f824b": {
@@ -107,16 +95,64 @@
             "HD Graphics 7000"
         ]
     },
-    "ec08ceee": {
+    "e4145cfb": {
         "category": "Science: Computers",
         "type": "multiple",
         "difficulty": "medium",
-        "question": "What did the name of the Tor Anonymity Network orignially stand for?",
-        "correct_answer": "The Onion Router",
+        "question": "The computer OEM manufacturer Clevo, known for its Sager notebook line, is based in which country?",
+        "correct_answer": "Taiwan",
         "incorrect_answers": [
-            "The Only Router",
-            "The Orange Router",
-            "The Ominous Router"
+            "United States",
+            "Germany",
+            "China (People's Republic of)"
+        ]
+    },
+    "fe7f38cc": {
+        "category": "Science: Computers",
+        "type": "multiple",
+        "difficulty": "medium",
+        "question": "Nvidia's headquarters are based in which Silicon Valley city?",
+        "correct_answer": "Santa Clara",
+        "incorrect_answers": [
+            "Palo Alto",
+            "Cupertino",
+            "Mountain View"
+        ]
+    },
+    "acecd484": {
+        "category": "Science: Computers",
+        "type": "multiple",
+        "difficulty": "easy",
+        "question": "What is the most preferred image format used for logos in the Wikimedia database?",
+        "correct_answer": ".svg",
+        "incorrect_answers": [
+            ".png",
+            ".jpeg",
+            ".gif"
+        ]
+    },
+    "b657d010": {
+        "category": "Science: Computers",
+        "type": "multiple",
+        "difficulty": "medium",
+        "question": "What was the name given to Android 4.3?",
+        "correct_answer": "Jelly Bean",
+        "incorrect_answers": [
+            "Lollipop",
+            "Nutella",
+            "Froyo"
+        ]
+    },
+    "96317a9f": {
+        "category": "Science: Computers",
+        "type": "multiple",
+        "difficulty": "medium",
+        "question": "Which of these is the name for the failed key escrow device introduced by the National Security Agency in 1993?",
+        "correct_answer": "Clipper Chip",
+        "incorrect_answers": [
+            "Enigma Machine",
+            "Skipjack",
+            "Nautilus"
         ]
     },
     "f4e8e3ad": {
@@ -131,18 +167,6 @@
             ".tl"
         ]
     },
-    "49e89d4e": {
-        "category": "Science: Computers",
-        "type": "multiple",
-        "difficulty": "hard",
-        "question": "The internet domain .fm is the country-code top-level domain for which Pacific Ocean island nation?",
-        "correct_answer": "Micronesia",
-        "incorrect_answers": [
-            "Fiji",
-            "Tuvalu",
-            "Marshall Islands"
-        ]
-    },
     "646ded0c": {
         "category": "Science: Computers",
         "type": "multiple",
@@ -153,18 +177,6 @@
             "Washington",
             "Colorado",
             "Arizona"
-        ]
-    },
-    "85de5c42": {
-        "category": "Science: Computers",
-        "type": "multiple",
-        "difficulty": "easy",
-        "question": "How many kilobytes in one gigabyte (in decimal)?",
-        "correct_answer": "1000000",
-        "incorrect_answers": [
-            "1024",
-            "1000",
-            "1048576"
         ]
     },
     "396ab686": {
@@ -179,18 +191,6 @@
             "Power Supply"
         ]
     },
-    "1c9f1b37": {
-        "category": "Science: Computers",
-        "type": "multiple",
-        "difficulty": "medium",
-        "question": "How many cores does the Intel i7-6950X have?",
-        "correct_answer": "10",
-        "incorrect_answers": [
-            "12",
-            "8",
-            "4"
-        ]
-    },
     "76a17f59": {
         "category": "Science: Computers",
         "type": "multiple",
@@ -201,18 +201,6 @@
             "Enceladus",
             "Pollux",
             "Saturn"
-        ]
-    },
-    "7deafb78": {
-        "category": "Science: Computers",
-        "type": "multiple",
-        "difficulty": "hard",
-        "question": "What port does HTTP run on?",
-        "correct_answer": "80",
-        "incorrect_answers": [
-            "53",
-            "443",
-            "23"
         ]
     },
     "85d6f170": {
@@ -227,6 +215,30 @@
             "<slide></slide>"
         ]
     },
+    "0ca46622": {
+        "category": "Science: Computers",
+        "type": "multiple",
+        "difficulty": "medium",
+        "question": "In CSS, which of these values CANNOT be used with the \"position\" property?",
+        "correct_answer": "center",
+        "incorrect_answers": [
+            "static",
+            "absolute",
+            "relative"
+        ]
+    },
+    "72eb5d6c": {
+        "category": "Science: Computers",
+        "type": "multiple",
+        "difficulty": "hard",
+        "question": "Which of these was the name of a bug found in April 2014 in the publicly available OpenSSL cryptography library?",
+        "correct_answer": "Heartbleed",
+        "incorrect_answers": [
+            "Shellshock",
+            "Corrupted Blood",
+            "Shellscript"
+        ]
+    },
     "2a789c7c": {
         "category": "Science: Computers",
         "type": "multiple",
@@ -239,16 +251,16 @@
             "?"
         ]
     },
-    "9aa7f48b": {
+    "513e0272": {
         "category": "Science: Computers",
         "type": "multiple",
-        "difficulty": "medium",
-        "question": "How fast is USB 3.1 Gen 2 theoretically?",
-        "correct_answer": "10 Gb/s",
+        "difficulty": "easy",
+        "question": "What does LTS stand for in the software market?",
+        "correct_answer": "Long Term Support",
         "incorrect_answers": [
-            "5 Gb/s",
-            "8 Gb/s",
-            "1 Gb/s"
+            "Long Taco Service",
+            "Ludicrous Transfer Speed",
+            "Ludicrous Turbo Speed"
         ]
     },
     "7e33627e": {
@@ -261,18 +273,6 @@
             "Language Control Design",
             "Last Common Difference",
             "Long Continuous Design"
-        ]
-    },
-    "892691b0": {
-        "category": "Science: Computers",
-        "type": "multiple",
-        "difficulty": "hard",
-        "question": "Who is the original author of the realtime physics engine called PhysX?",
-        "correct_answer": "NovodeX",
-        "incorrect_answers": [
-            "Ageia",
-            "Nvidia",
-            "AMD"
         ]
     },
     "74209ec3": {
@@ -299,16 +299,16 @@
             "Octal"
         ]
     },
-    "d09dc609": {
+    "3a9a0458": {
         "category": "Science: Computers",
         "type": "multiple",
-        "difficulty": "medium",
-        "question": "What does the term GPU stand for?",
-        "correct_answer": "Graphics Processing Unit",
+        "difficulty": "hard",
+        "question": "Which data structure does FILO apply to?",
+        "correct_answer": "Stack",
         "incorrect_answers": [
-            "Gaming Processor Unit",
-            "Graphite Producing Unit",
-            "Graphical Proprietary Unit"
+            "Queue",
+            "Heap",
+            "Tree"
         ]
     },
     "a4948d43": {
@@ -335,52 +335,40 @@
             "FTP"
         ]
     },
-    "c3452993": {
+    "f37d342e": {
         "category": "Science: Computers",
         "type": "multiple",
         "difficulty": "hard",
-        "question": "Which of these is not a key value of Agile software development?",
-        "correct_answer": "Comprehensive documentation",
+        "question": "What does the International System of Quantities refer 1024 bytes as?",
+        "correct_answer": "Kibibyte",
         "incorrect_answers": [
-            "Individuals and interactions",
-            "Customer collaboration",
-            "Responding to change"
+            "Kylobyte",
+            "Kilobyte",
+            "Kelobyte"
         ]
     },
-    "dddf792b": {
+    "2aaecf02": {
+        "category": "Science: Computers",
+        "type": "multiple",
+        "difficulty": "hard",
+        "question": "What was the first company to use the term \"Golden Master\"?",
+        "correct_answer": "Apple",
+        "incorrect_answers": [
+            "IBM",
+            "Microsoft",
+            "Google"
+        ]
+    },
+    "c459334d": {
         "category": "Science: Computers",
         "type": "multiple",
         "difficulty": "easy",
-        "question": "This mobile OS held the largest market share in 2012.",
-        "correct_answer": "iOS",
+        "question": "How many values can a single byte represent?",
+        "correct_answer": "256",
         "incorrect_answers": [
-            "Android",
-            "BlackBerry",
-            "Symbian"
-        ]
-    },
-    "78889382": {
-        "category": "Science: Computers",
-        "type": "multiple",
-        "difficulty": "hard",
-        "question": "Which RAID array type is associated with data mirroring?",
-        "correct_answer": "RAID 1",
-        "incorrect_answers": [
-            "RAID 0",
-            "RAID 10",
-            "RAID 5"
-        ]
-    },
-    "015c2321": {
-        "category": "Science: Computers",
-        "type": "multiple",
-        "difficulty": "medium",
-        "question": "What does the term MIME stand for, in regards to computing?",
-        "correct_answer": "Multipurpose Internet Mail Extensions",
-        "incorrect_answers": [
-            "Mail Internet Mail Exchange",
-            "Multipurpose Interleave Mail Exchange",
-            "Mail Interleave Method Exchange"
+            "8",
+            "1",
+            "1024"
         ]
     },
     "53c961e0": {
@@ -419,6 +407,18 @@
             "Michael Roberts"
         ]
     },
+    "347d88ea": {
+        "category": "Science: Computers",
+        "type": "multiple",
+        "difficulty": "medium",
+        "question": "Approximately how many Apple I personal computers were created?",
+        "correct_answer": "200",
+        "incorrect_answers": [
+            "100",
+            "500",
+            "1000"
+        ]
+    },
     "6e1d1f66": {
         "category": "Science: Computers",
         "type": "multiple",
@@ -443,16 +443,64 @@
             "Land Address Navigation"
         ]
     },
-    "87e76cfc": {
+    "5fe26994": {
         "category": "Science: Computers",
         "type": "multiple",
         "difficulty": "medium",
-        "question": "What is the number of keys on a standard Windows Keyboard?",
-        "correct_answer": "104",
+        "question": "How many bytes are in a single Kibibyte?",
+        "correct_answer": "1024",
         "incorrect_answers": [
-            "64",
-            "94",
-            "76"
+            "2400",
+            "1000",
+            "1240"
+        ]
+    },
+    "bd5a8f2c": {
+        "category": "Science: Computers",
+        "type": "multiple",
+        "difficulty": "hard",
+        "question": "According to DeMorgan's Theorem, the Boolean expression (AB)' is equivalent to:",
+        "correct_answer": "A' + B'",
+        "incorrect_answers": [
+            "A'B + B'A",
+            "A'B'",
+            "AB' + AB"
+        ]
+    },
+    "b062e021": {
+        "category": "Science: Computers",
+        "type": "multiple",
+        "difficulty": "hard",
+        "question": "The acronym \"RIP\" stands for which of these?",
+        "correct_answer": "Routing Information Protocol",
+        "incorrect_answers": [
+            "Runtime Instance Processes",
+            "Regular Interval Processes",
+            "Routine Inspection Protocol"
+        ]
+    },
+    "30c63415": {
+        "category": "Science: Computers",
+        "type": "multiple",
+        "difficulty": "hard",
+        "question": "Which of these is not a layer in the OSI model for data communications?",
+        "correct_answer": "Connection Layer",
+        "incorrect_answers": [
+            "Application Layer",
+            "Transport Layer",
+            "Physical Layer"
+        ]
+    },
+    "1f9687a1": {
+        "category": "Science: Computers",
+        "type": "multiple",
+        "difficulty": "medium",
+        "question": "The teapot often seen in many 3D modeling applications is called what?",
+        "correct_answer": "Utah Teapot",
+        "incorrect_answers": [
+            "Pixar Teapot",
+            "3D Teapot",
+            "Tennessee Teapot"
         ]
     },
     "54f622b2": {
@@ -467,16 +515,16 @@
             "PCM Sampler"
         ]
     },
-    "4406c338": {
+    "59bc2e15": {
         "category": "Science: Computers",
         "type": "multiple",
         "difficulty": "medium",
-        "question": "How many bits make up the significand portion of a single precision floating point number?",
-        "correct_answer": "23",
+        "question": "Unix Time is defined as the number of seconds that have elapsed since when?",
+        "correct_answer": "Midnight, January 1, 1970",
         "incorrect_answers": [
-            "8",
-            "53",
-            "15"
+            "Midnight, July 4, 1976",
+            "Midnight on the creator of Unix's birthday",
+            "Midnight, July 4, 1980"
         ]
     },
     "fd5ad0fc": {
@@ -491,30 +539,6 @@
             "Stable"
         ]
     },
-    "5c7a351c": {
-        "category": "Science: Computers",
-        "type": "multiple",
-        "difficulty": "easy",
-        "question": "What language does Node.js use?",
-        "correct_answer": "JavaScript",
-        "incorrect_answers": [
-            "Java",
-            "Java Source",
-            "Joomla Source Code"
-        ]
-    },
-    "b8f3adc2": {
-        "category": "Science: Computers",
-        "type": "multiple",
-        "difficulty": "hard",
-        "question": "What is the codename of the eighth generation Intel Core micro-architecture launched in October 2017?",
-        "correct_answer": "Coffee Lake",
-        "incorrect_answers": [
-            "Sandy Bridge",
-            "Skylake",
-            "Broadwell"
-        ]
-    },
     "70b3526e": {
         "category": "Science: Computers",
         "type": "multiple",
@@ -525,18 +549,6 @@
             "Mark Zuckerberg",
             "Marc Benioff",
             "Jack Dorsey"
-        ]
-    },
-    "3e8b068e": {
-        "category": "Science: Computers",
-        "type": "multiple",
-        "difficulty": "easy",
-        "question": "What does the computer software acronym JVM stand for?",
-        "correct_answer": "Java Virtual Machine",
-        "incorrect_answers": [
-            "Java Vendor Machine",
-            "Java Visual Machine",
-            "Just Virtual Machine"
         ]
     }
 }
