@@ -44,11 +44,8 @@ def build_message(cmd: str, data: str) -> str | None:
     Gets command name and data field, then creates a valid protocol message.
     Valid message: <cmd>:(whitespace:16)|<data_len>(whitespace/zeros:4)|<data>
     :param cmd: The command of the message
-    :type cmd: str
     :param data: The data of the message
-    :type data: str
     :return: Valid protocol message, or None if error occurred
-    :rtype: str | None
     """
     data_len = len(data)  # Compute only once
     # Check length validity of cmd and data fields
@@ -68,9 +65,7 @@ def parse_message(msg: str) -> tuple[str, str] | tuple[None, None]:
     Parses protocol message and returns command name and data field.
     Valid message: <cmd>:(whitespace:16)|<data_len>(whitespace/zeros:4)|<data>
     :param msg: The message to parse to cmd and data
-    :type msg: str
     :return: cmd, data fields. If some error occurred, returns None, None
-    :rtype: tuple[str, str] | tuple[None, None]
     """
     # First check type edge-case
     if not isinstance(msg, str):
@@ -105,11 +100,8 @@ def split_data(msg: str, expected_fields: int) -> list[str] | list[None]:
     Splits the string using protocol's data field delimiter (|#)
     and validates that there are correct number of fields.
     :param msg: The message to split
-    :type msg: str
     :param expected_fields: The number of expected fields
-    :type expected_fields: int
     :return: list of fields if all ok. If some error occurred, returns [None]
-    :rtype: list[str] | list[None]
     """
     fields = msg.split(DATA_DELIMITER)
     return fields if (len(fields) == expected_fields) else [ERROR_RETURN]
@@ -120,8 +112,6 @@ def join_data(msg_fields: list[str]) -> str:
     Helper method. Gets a list, joins all of its fields to one string
     divided by the data delimiter.
     :param msg_fields: The data fields to join
-    :type msg_fields: list
     :return: A joined string that looks like cell1#cell2#cell3
-    :rtype: str
     """
     return DATA_DELIMITER.join(msg_fields)
