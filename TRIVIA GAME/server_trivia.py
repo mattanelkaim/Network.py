@@ -13,7 +13,7 @@ import chatlib
 
 users = {}
 questions = {}
-logged_users = {}  # Tuples of sockets and usernames
+logged_users = {}  # Contains tuples of sockets and usernames
 client_sockets = set()
 messages_to_send = []
 
@@ -215,8 +215,7 @@ def handle_logout_message(conn: socket.socket) -> None:
     :param conn: The socket connection
     :return: None
     """
-    global logged_users
-    global client_sockets
+    global logged_users, client_sockets
 
     # Try to get client info
     try:
@@ -240,8 +239,7 @@ def handle_login_message(conn: socket.socket, data: str) -> None:
     :param data: The login info to validate
     :return: None
     """
-    global users
-    global logged_users
+    global users, logged_users
     data = chatlib.split_data(data, 2)
     username, password = data
 
@@ -265,8 +263,7 @@ def create_random_question(username: str) -> str | None:
     in the format 'id#question#ans1#ans2#...#correct'
     :return: The random question in the protocol format, None if no questions left
     """
-    global questions
-    global users
+    global questions, users
 
     # Get questions' IDs that were not asked
     questions_asked = set(users[username]["questions_asked"])
@@ -330,8 +327,7 @@ def handle_answer_message(conn: socket.socket, data: str) -> None:
     :param data: question_id#user_answer
     :return: None
     """
-    global questions
-    global users
+    global questions, users
     username = logged_users.get(conn.getpeername())
     question_id, answer = chatlib.split_data(data, 2)
     correct_answer = questions[question_id]["correct_answer"]
@@ -388,18 +384,15 @@ def handle_client_message(conn: socket.socket, cmd: str, data: str) -> None:
 
 
 def main():
-    global users
-    global questions
-    global client_sockets
-    global messages_to_send
+    global users, questions, client_sockets, messages_to_send
 
     # Config logging for info & debug
     logging.basicConfig(level=logging.DEBUG, format='%(levelname)s: %(message)s')
 
     # Load data
     load_user_database()
-    # load_questions()  # From a static file
     load_questions_from_web()
+    # load_questions()  # From a static file
 
     server_socket = socket.create_server((SERVER_IP, SERVER_PORT))
     logging.info(f"Server is up and listening on port {SERVER_PORT}...")
