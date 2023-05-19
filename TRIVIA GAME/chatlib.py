@@ -77,8 +77,7 @@ def parse_message(msg: str) -> tuple[str, str] | tuple[None, None]:
         return ERROR_RETURN, ERROR_RETURN
 
     cmd, length, data = msg_parts
-    cmd_stripped = cmd.strip()
-    length_stripped = length.strip()
+    cmd_stripped, length_stripped = cmd.strip(), length.strip()
     data_len = len(data)  # Compute only once
 
     # First validate logic, then check lengths
