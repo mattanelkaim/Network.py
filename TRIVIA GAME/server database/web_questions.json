@@ -1,14 +1,26 @@
 {
-    "0a94fa35": {
+    "cc8d0112": {
+        "category": "Science: Computers",
+        "type": "multiple",
+        "difficulty": "hard",
+        "question": "The Harvard architecture for micro-controllers added which additional bus?",
+        "correct_answer": "Instruction",
+        "incorrect_answers": [
+            "Address",
+            "Data",
+            "Control"
+        ]
+    },
+    "8ab1fd1c": {
         "category": "Science: Computers",
         "type": "multiple",
         "difficulty": "easy",
-        "question": "In any programming language, what is the most common way to iterate through an array?",
-        "correct_answer": "'For' loops",
+        "question": "What does CPU stand for?",
+        "correct_answer": "Central Processing Unit",
         "incorrect_answers": [
-            "'If' Statements",
-            "'Do-while' loops",
-            "'While' loops"
+            "Central Process Unit",
+            "Computer Personal Unit",
+            "Central Processor Unit"
         ]
     },
     "39a09133": {
@@ -23,6 +35,18 @@
             "Shopify"
         ]
     },
+    "86fa4dc6": {
+        "category": "Science: Computers",
+        "type": "multiple",
+        "difficulty": "easy",
+        "question": "What does the \"MP\" stand for in MP3?",
+        "correct_answer": "Moving Picture",
+        "incorrect_answers": [
+            "Music Player",
+            "Multi Pass",
+            "Micro Point"
+        ]
+    },
     "77a7d236": {
         "category": "Science: Computers",
         "type": "multiple",
@@ -35,30 +59,6 @@
             "Stagefright"
         ]
     },
-    "baef188a": {
-        "category": "Science: Computers",
-        "type": "multiple",
-        "difficulty": "medium",
-        "question": "Whistler was the codename of this Microsoft Operating System.",
-        "correct_answer": "Windows XP",
-        "incorrect_answers": [
-            "Windows 2000",
-            "Windows 7",
-            "Windows 95"
-        ]
-    },
-    "64de3fef": {
-        "category": "Science: Computers",
-        "type": "multiple",
-        "difficulty": "medium",
-        "question": "Moore's law originally stated that the number of transistors on a microprocessor chip would double every...",
-        "correct_answer": "Year",
-        "incorrect_answers": [
-            "Four Years",
-            "Two Years",
-            "Eight Years"
-        ]
-    },
     "683b41fd": {
         "category": "Science: Computers",
         "type": "multiple",
@@ -69,18 +69,6 @@
             "Gigahotz",
             "Gigahetz",
             "Gigahatz"
-        ]
-    },
-    "af5faa38": {
-        "category": "Science: Computers",
-        "type": "multiple",
-        "difficulty": "medium",
-        "question": "What does AD stand for in relation to Windows Operating Systems? ",
-        "correct_answer": "Active Directory",
-        "incorrect_answers": [
-            "Alternative Drive",
-            "Automated Database",
-            "Active Department"
         ]
     },
     "2fb4ee5d": {
@@ -107,18 +95,6 @@
             "Pixel"
         ]
     },
-    "5bf58674": {
-        "category": "Science: Computers",
-        "type": "multiple",
-        "difficulty": "hard",
-        "question": "How many Hz does the video standard PAL support?",
-        "correct_answer": "50",
-        "incorrect_answers": [
-            "59",
-            "60",
-            "25"
-        ]
-    },
     "85af0827": {
         "category": "Science: Computers",
         "type": "multiple",
@@ -131,16 +107,52 @@
             "Random Access Memory"
         ]
     },
-    "efd8f854": {
+    "a27257f7": {
         "category": "Science: Computers",
         "type": "multiple",
         "difficulty": "easy",
-        "question": "If you were to code software in this language you'd only be able to type 0's and 1's.",
-        "correct_answer": "Binary",
+        "question": "In the programming language Java, which of these keywords would you put on a variable to make sure it doesn't get modified?",
+        "correct_answer": "Final",
         "incorrect_answers": [
-            "JavaScript",
-            "C++",
-            "Python"
+            "Static",
+            "Private",
+            "Public"
+        ]
+    },
+    "2df1f112": {
+        "category": "Science: Computers",
+        "type": "multiple",
+        "difficulty": "easy",
+        "question": "What does the Prt Sc button do?",
+        "correct_answer": "Captures what's on the screen and copies it to your clipboard",
+        "incorrect_answers": [
+            "Nothing",
+            "Saves a .png file of what's on the screen in your screenshots folder in photos",
+            "Closes all windows"
+        ]
+    },
+    "22335f08": {
+        "category": "Science: Computers",
+        "type": "multiple",
+        "difficulty": "medium",
+        "question": "All of the following programs are classified as raster graphics editors EXCEPT:",
+        "correct_answer": "Inkscape",
+        "incorrect_answers": [
+            "Paint.NET",
+            "GIMP",
+            "Adobe Photoshop"
+        ]
+    },
+    "fe7f38cc": {
+        "category": "Science: Computers",
+        "type": "multiple",
+        "difficulty": "medium",
+        "question": "Nvidia's headquarters are based in which Silicon Valley city?",
+        "correct_answer": "Santa Clara",
+        "incorrect_answers": [
+            "Palo Alto",
+            "Cupertino",
+            "Mountain View"
         ]
     },
     "95a4face": {
@@ -155,76 +167,28 @@
             "AMD AM386"
         ]
     },
-    "49340c96": {
-        "category": "Science: Computers",
-        "type": "multiple",
-        "difficulty": "easy",
-        "question": "In web design, what does CSS stand for?",
-        "correct_answer": "Cascading Style Sheet",
-        "incorrect_answers": [
-            "Counter Strike: Source",
-            "Corrective Style Sheet",
-            "Computer Style Sheet"
-        ]
-    },
-    "fa5a8e0a": {
-        "category": "Science: Computers",
-        "type": "multiple",
-        "difficulty": "easy",
-        "question": "What is the code name for the mobile operating system Android 7.0?",
-        "correct_answer": "Nougat",
-        "incorrect_answers": [
-            "Ice Cream Sandwich",
-            "Jelly Bean",
-            "Marshmallow"
-        ]
-    },
-    "49e89d4e": {
-        "category": "Science: Computers",
-        "type": "multiple",
-        "difficulty": "hard",
-        "question": "The internet domain .fm is the country-code top-level domain for which Pacific Ocean island nation?",
-        "correct_answer": "Micronesia",
-        "incorrect_answers": [
-            "Fiji",
-            "Tuvalu",
-            "Marshall Islands"
-        ]
-    },
-    "85de5c42": {
-        "category": "Science: Computers",
-        "type": "multiple",
-        "difficulty": "easy",
-        "question": "How many kilobytes in one gigabyte (in decimal)?",
-        "correct_answer": "1000000",
-        "incorrect_answers": [
-            "1024",
-            "1000",
-            "1048576"
-        ]
-    },
-    "1c9f1b37": {
+    "646ded0c": {
         "category": "Science: Computers",
         "type": "multiple",
         "difficulty": "medium",
-        "question": "How many cores does the Intel i7-6950X have?",
-        "correct_answer": "10",
+        "question": "While Apple was formed in California, in which western state was Microsoft founded?",
+        "correct_answer": "New Mexico",
         "incorrect_answers": [
-            "12",
-            "8",
-            "4"
+            "Washington",
+            "Colorado",
+            "Arizona"
         ]
     },
-    "aef63172": {
+    "7ccc4f17": {
         "category": "Science: Computers",
         "type": "multiple",
         "difficulty": "medium",
-        "question": "In the server hosting industry IaaS stands for...",
-        "correct_answer": "Infrastructure as a Service",
+        "question": "Which one of these is not an official development name for a Ubuntu release?",
+        "correct_answer": "Mystic Mansion",
         "incorrect_answers": [
-            "Internet as a Service",
-            "Internet and a Server",
-            "Infrastructure as a Server"
+            "Trusty Tahr",
+            "Utopic Unicorn",
+            "Wily Werewolf"
         ]
     },
     "c3d6f0ff": {
@@ -239,6 +203,18 @@
             "100"
         ]
     },
+    "7deafb78": {
+        "category": "Science: Computers",
+        "type": "multiple",
+        "difficulty": "hard",
+        "question": "What port does HTTP run on?",
+        "correct_answer": "80",
+        "incorrect_answers": [
+            "53",
+            "443",
+            "23"
+        ]
+    },
     "9c141850": {
         "category": "Science: Computers",
         "type": "multiple",
@@ -251,16 +227,64 @@
             "printf(\"Hello World\")"
         ]
     },
-    "2a789c7c": {
+    "72eb5d6c": {
+        "category": "Science: Computers",
+        "type": "multiple",
+        "difficulty": "hard",
+        "question": "Which of these was the name of a bug found in April 2014 in the publicly available OpenSSL cryptography library?",
+        "correct_answer": "Heartbleed",
+        "incorrect_answers": [
+            "Shellshock",
+            "Corrupted Blood",
+            "Shellscript"
+        ]
+    },
+    "17749935": {
         "category": "Science: Computers",
         "type": "multiple",
         "difficulty": "medium",
-        "question": "In programming, the ternary operator is mostly defined with what symbol(s)?",
-        "correct_answer": "?:",
+        "question": "What is the correct term for the metal object in between the CPU and the CPU fan within a computer system?",
+        "correct_answer": "Heat Sink",
         "incorrect_answers": [
-            "??",
-            "if then",
-            "?"
+            "CPU Vent",
+            "Temperature Decipator",
+            "Heat Vent"
+        ]
+    },
+    "31b13904": {
+        "category": "Science: Computers",
+        "type": "multiple",
+        "difficulty": "medium",
+        "question": "In computing terms, typically what does CLI stand for?",
+        "correct_answer": "Command Line Interface",
+        "incorrect_answers": [
+            "Common Language Input",
+            "Control Line Interface",
+            "Common Language Interface"
+        ]
+    },
+    "9aa7f48b": {
+        "category": "Science: Computers",
+        "type": "multiple",
+        "difficulty": "medium",
+        "question": "How fast is USB 3.1 Gen 2 theoretically?",
+        "correct_answer": "10 Gb/s",
+        "incorrect_answers": [
+            "5 Gb/s",
+            "8 Gb/s",
+            "1 Gb/s"
+        ]
+    },
+    "892691b0": {
+        "category": "Science: Computers",
+        "type": "multiple",
+        "difficulty": "hard",
+        "question": "Who is the original author of the realtime physics engine called PhysX?",
+        "correct_answer": "NovodeX",
+        "incorrect_answers": [
+            "Ageia",
+            "Nvidia",
+            "AMD"
         ]
     },
     "27fa2eeb": {
@@ -275,28 +299,28 @@
             "OS/2"
         ]
     },
-    "81da167d": {
+    "ffad61b9": {
         "category": "Science: Computers",
         "type": "multiple",
-        "difficulty": "medium",
-        "question": "Which of the following is a personal computer made by the Japanese company Fujitsu?",
-        "correct_answer": "FM-7",
+        "difficulty": "easy",
+        "question": "The numbering system with a radix of 16 is more commonly referred to as ",
+        "correct_answer": "Hexidecimal",
         "incorrect_answers": [
-            "PC-9801",
-            "Xmillennium ",
-            "MSX"
+            "Binary",
+            "Duodecimal",
+            "Octal"
         ]
     },
-    "a4948d43": {
+    "3a9a0458": {
         "category": "Science: Computers",
         "type": "multiple",
         "difficulty": "hard",
-        "question": "America Online (AOL) started out as which of these online service providers?",
-        "correct_answer": "Quantum Link",
+        "question": "Which data structure does FILO apply to?",
+        "correct_answer": "Stack",
         "incorrect_answers": [
-            "CompuServe",
-            "Prodigy",
-            "GEnie"
+            "Queue",
+            "Heap",
+            "Tree"
         ]
     },
     "c3d05289": {
@@ -311,6 +335,18 @@
             "FTP"
         ]
     },
+    "c3452993": {
+        "category": "Science: Computers",
+        "type": "multiple",
+        "difficulty": "hard",
+        "question": "Which of these is not a key value of Agile software development?",
+        "correct_answer": "Comprehensive documentation",
+        "incorrect_answers": [
+            "Individuals and interactions",
+            "Customer collaboration",
+            "Responding to change"
+        ]
+    },
     "dddf792b": {
         "category": "Science: Computers",
         "type": "multiple",
@@ -321,18 +357,6 @@
             "Android",
             "BlackBerry",
             "Symbian"
-        ]
-    },
-    "f37d342e": {
-        "category": "Science: Computers",
-        "type": "multiple",
-        "difficulty": "hard",
-        "question": "What does the International System of Quantities refer 1024 bytes as?",
-        "correct_answer": "Kibibyte",
-        "incorrect_answers": [
-            "Kylobyte",
-            "Kilobyte",
-            "Kelobyte"
         ]
     },
     "5769802b": {
@@ -347,16 +371,40 @@
             "Marshmellow"
         ]
     },
-    "78889382": {
+    "80220701": {
+        "category": "Science: Computers",
+        "type": "multiple",
+        "difficulty": "medium",
+        "question": "Which of these people was NOT a founder of Apple Inc?",
+        "correct_answer": "Jonathan Ive",
+        "incorrect_answers": [
+            "Steve Jobs",
+            "Ronald Wayne",
+            "Steve Wozniak"
+        ]
+    },
+    "bde42393": {
+        "category": "Science: Computers",
+        "type": "multiple",
+        "difficulty": "medium",
+        "question": "When did the online streaming service \"Mixer\" launch?",
+        "correct_answer": "2016",
+        "incorrect_answers": [
+            "2013",
+            "2009",
+            "2011"
+        ]
+    },
+    "2aaecf02": {
         "category": "Science: Computers",
         "type": "multiple",
         "difficulty": "hard",
-        "question": "Which RAID array type is associated with data mirroring?",
-        "correct_answer": "RAID 1",
+        "question": "What was the first company to use the term \"Golden Master\"?",
+        "correct_answer": "Apple",
         "incorrect_answers": [
-            "RAID 0",
-            "RAID 10",
-            "RAID 5"
+            "IBM",
+            "Microsoft",
+            "Google"
         ]
     },
     "c459334d": {
@@ -371,28 +419,16 @@
             "1024"
         ]
     },
-    "53c961e0": {
+    "015c2321": {
         "category": "Science: Computers",
         "type": "multiple",
-        "difficulty": "hard",
-        "question": "Released in 2001, the first edition of Apple's Mac OS X operating system (version 10.0) was given what animal code name?",
-        "correct_answer": "Cheetah",
+        "difficulty": "medium",
+        "question": "What does the term MIME stand for, in regards to computing?",
+        "correct_answer": "Multipurpose Internet Mail Extensions",
         "incorrect_answers": [
-            "Puma",
-            "Tiger",
-            "Leopard"
-        ]
-    },
-    "c7660792": {
-        "category": "Science: Computers",
-        "type": "multiple",
-        "difficulty": "easy",
-        "question": "The C programming language was created by this American computer scientist. ",
-        "correct_answer": "Dennis Ritchie",
-        "incorrect_answers": [
-            "Tim Berners Lee",
-            "al-Khw\u0101rizm\u012b",
-            "Willis Ware"
+            "Mail Internet Mail Exchange",
+            "Multipurpose Interleave Mail Exchange",
+            "Mail Interleave Method Exchange"
         ]
     },
     "6e2c097e": {
@@ -407,16 +443,16 @@
             "C++"
         ]
     },
-    "cbc27b77": {
+    "b75c4fb5": {
         "category": "Science: Computers",
         "type": "multiple",
         "difficulty": "hard",
-        "question": "Who invented the \"Spanning Tree Protocol\"?",
-        "correct_answer": "Radia Perlman",
+        "question": "What is the name given to layer 4 of the Open Systems Interconnection (ISO) model?",
+        "correct_answer": "Transport",
         "incorrect_answers": [
-            "Paul Vixie",
-            "Vint Cerf",
-            "Michael Roberts"
+            "Session",
+            "Data link",
+            "Network"
         ]
     },
     "347d88ea": {
@@ -443,6 +479,18 @@
             "Jakarta"
         ]
     },
+    "6e1d1f66": {
+        "category": "Science: Computers",
+        "type": "multiple",
+        "difficulty": "medium",
+        "question": "In programming, what do you call functions with the same name but different implementations?",
+        "correct_answer": "Overloading",
+        "incorrect_answers": [
+            "Overriding",
+            "Abstracting",
+            "Inheriting"
+        ]
+    },
     "468d71f3": {
         "category": "Science: Computers",
         "type": "multiple",
@@ -453,18 +501,6 @@
             "32 bits",
             "64 bits",
             "128 bytes"
-        ]
-    },
-    "833e0342": {
-        "category": "Science: Computers",
-        "type": "multiple",
-        "difficulty": "easy",
-        "question": "In computing, what does LAN stand for?",
-        "correct_answer": "Local Area Network",
-        "incorrect_answers": [
-            "Long Antenna Node",
-            "Light Access Node",
-            "Land Address Navigation"
         ]
     },
     "bd5a8f2c": {
@@ -479,6 +515,18 @@
             "AB' + AB"
         ]
     },
+    "1f9687a1": {
+        "category": "Science: Computers",
+        "type": "multiple",
+        "difficulty": "medium",
+        "question": "The teapot often seen in many 3D modeling applications is called what?",
+        "correct_answer": "Utah Teapot",
+        "incorrect_answers": [
+            "Pixar Teapot",
+            "3D Teapot",
+            "Tennessee Teapot"
+        ]
+    },
     "87e76cfc": {
         "category": "Science: Computers",
         "type": "multiple",
@@ -489,18 +537,6 @@
             "64",
             "94",
             "76"
-        ]
-    },
-    "0a738552": {
-        "category": "Science: Computers",
-        "type": "multiple",
-        "difficulty": "hard",
-        "question": "What was the name of the first Bulgarian personal computer?",
-        "correct_answer": "IMKO-1",
-        "incorrect_answers": [
-            "Pravetz 82",
-            "Pravetz 8D",
-            "IZOT 1030"
         ]
     },
     "59bc2e15": {
@@ -515,52 +551,16 @@
             "Midnight, July 4, 1980"
         ]
     },
-    "e3c516e9": {
+    "70b3526e": {
         "category": "Science: Computers",
         "type": "multiple",
         "difficulty": "hard",
-        "question": "Lenovo acquired IBM's personal computer division, including the ThinkPad line of laptops and tablets, in what year?",
-        "correct_answer": "2005",
+        "question": "Who is the founder of Palantir?",
+        "correct_answer": "Peter Thiel",
         "incorrect_answers": [
-            "1999",
-            "2002",
-            "2008"
-        ]
-    },
-    "6fab5d64": {
-        "category": "Science: Computers",
-        "type": "multiple",
-        "difficulty": "hard",
-        "question": "Which of these Cherry MX mechanical keyboard switches is both tactile and clicky?",
-        "correct_answer": "Cherry MX Blue",
-        "incorrect_answers": [
-            "Cherry MX Black",
-            "Cherry MX Red",
-            "Cherry MX Brown"
-        ]
-    },
-    "d03b2b41": {
-        "category": "Science: Computers",
-        "type": "multiple",
-        "difficulty": "hard",
-        "question": "Which kind of algorithm is Ron Rivest not famous for creating?",
-        "correct_answer": "Secret sharing scheme",
-        "incorrect_answers": [
-            "Hashing algorithm",
-            "Asymmetric encryption",
-            "Stream cipher"
-        ]
-    },
-    "3e8b068e": {
-        "category": "Science: Computers",
-        "type": "multiple",
-        "difficulty": "easy",
-        "question": "What does the computer software acronym JVM stand for?",
-        "correct_answer": "Java Virtual Machine",
-        "incorrect_answers": [
-            "Java Vendor Machine",
-            "Java Visual Machine",
-            "Just Virtual Machine"
+            "Mark Zuckerberg",
+            "Marc Benioff",
+            "Jack Dorsey"
         ]
     }
 }

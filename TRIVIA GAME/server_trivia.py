@@ -92,7 +92,7 @@ def print_client_sockets(sockets: set[socket.socket]) -> None:
 # DATA LOADERS
 
 
-def load_questions() -> None:
+def load_questions_from_file() -> None:
     """
     Loads questions dict from a JSON file.
     The dictionary's keys are the question IDs, their values are
@@ -114,6 +114,7 @@ def load_questions_from_web() -> None:
     """
     global questions
 
+    # Requests will nicely log by default
     stock = requests.get(QUESTIONS_API_URL, params=QUESTIONS_SETTINGS).json().get("results")
     data_delimiter = chatlib.DATA_DELIMITER
 
