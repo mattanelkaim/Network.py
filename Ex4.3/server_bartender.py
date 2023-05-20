@@ -8,11 +8,10 @@ IP, PORT = "0.0.0.0", 5555
 BUFFER_SIZE = 1024
 
 
-def print_clients_sockets(sockets: list[socket]) -> None:
+def print_clients_sockets(sockets: list[socket.socket]) -> None:
     """
     Prints all sockets details in a given list of sockets
     :param sockets: The list of the sockets
-    :type sockets: list[sockets]
     :return: None
     """
     print("\nConnected clients:")
@@ -24,14 +23,12 @@ def print_clients_sockets(sockets: list[socket]) -> None:
     print()  # Newline
 
 
-def close_socket(conn: socket, client_sockets: list[socket]) -> None:
+def close_socket(conn: socket.socket, client_sockets: list[socket.socket]) -> None:
     """
     Closes a client socket and removes it from the list,
     then prints connected clients
     :param conn: The socket connection to close
-    :type conn: socket
     :param client_sockets: The list of all client sockets
-    :type client_sockets: list[socket]
     :return: None
     """
     try:
@@ -62,7 +59,7 @@ def main():
         for current_socket in ready_to_read:
             if current_socket is server_socket:
                 # Add new clients
-                client_socket, client_addr = current_socket.accept()
+                client_socket, _ = current_socket.accept()
                 client_sockets.append(client_socket)
                 print_clients_sockets(client_sockets)
             else:

@@ -1,6 +1,6 @@
 import socket
 
-IP, PORT = "127.0.0.1", 5555
+IP, PORT = "loopback", 5555
 END_MSG = "BYE"
 
 my_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)

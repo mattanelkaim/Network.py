@@ -11,15 +11,12 @@ TIMEOUT_IN_SECONDS = 10
 CHECKSUM_ERROR_MSG = "Bad checksum"
 
 
-def special_sendto(conn: socket, response: str, addr: tuple[str, int]) -> None:
+def special_sendto(conn: socket.socket, response: str, addr: tuple[str, int]) -> None:
     """
     A sending function provided by the course itself
     :param conn: The socket connection
-    :type conn: socket
     :param response: The data to send
-    :type response: str
     :param addr: The address to send to
-    :type addr: tuple[str, int]
     :return: None
     """
     fail = random.randint(1, 3)
@@ -34,9 +31,7 @@ def calc_checksum(msg_data: str) -> str:
     Sums all the ASCII values in a given string,
     then formats to a string with length 16
     :param msg_data: The string to calculate its checksum
-    :type msg_data: str
     :return: The checksum
-    :rtype: str
     """
     total = sum(ord(x) for x in msg_data)  # Sum of all ASCII chars
     return str(total).rjust(CHECKSUM_LEN, "0")  # Formats to a 16-length string
@@ -45,6 +40,7 @@ def calc_checksum(msg_data: str) -> str:
 # Create a UDP socket
 server_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 server_socket.bind((IP, PORT))
+print("Server is listening...")
 
 data = ""
 while data != "EXIT":
