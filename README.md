@@ -20,7 +20,7 @@
     <li>
         <strong><a href="https://github.com/mattanelkaim/Network.py/tree/master/TRIVIA%20GAME">TRIVIA GAME</a> - Summary project</strong>. Creating the <strong><em>chatlib</em> protocol</strong>, that enables to transfer commands & data between clients and the server.
         <br>
-        Developing a <strong>robust server-client system</strong> that allows hosting and participation in the game.
+        Developing a <strong>robust server-client system</strong> that allows hosting and participating in the game.
         <br>
         Also experimenting with <strong>some modules</strong>, such as:
         <br>
@@ -45,4 +45,4 @@
     <li><strong>Run</strong> the server file.</li>
     <li>Run as many clients as you want, <strong>play the game</strong> and show off your knowledge in computer science!</li>
 </ol>
-<p>* You can then compile the client file with the <em>compile_client.bat</em> script.</p>
+<p>* You can then compile the client file to a .pyc file using the <em>compile_client.bat</em> script.</p>
